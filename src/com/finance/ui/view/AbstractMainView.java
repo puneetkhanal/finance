@@ -3,27 +3,36 @@ package com.finance.ui.view;
 import java.util.Vector;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
-public abstract class AbstractMainView {
+public abstract class AbstractMainView extends JFrame {
 
 	private JButton reportButton;
 	private IUIFactory uiFactory;
+	private AbstractDynamicPanel crPanel;
+	private AbstractDynamicPanel trPanel;
 
 	public AbstractMainView() {
 		uiFactory = new DefaultUIFactory();
+		crPanel = uiFactory.createCRPanel();
+		trPanel = uiFactory.createTRPanel();
 	}
 
 	public AbstractDynamicPanel getCRPanel() {
-		return uiFactory.createCRPanel();
+		return crPanel;
 	}
 
 	public AbstractDynamicPanel getTRPanel() {
-		return uiFactory.createTRPanel();
+		return trPanel;
 	}
 
 	public void setUIFactory(IUIFactory uiFactory) {
 		this.uiFactory = uiFactory;
 	}
-	
+
+	public JButton getReportButton() {
+		return reportButton;
+	}
+
 	public abstract void setTableModel(Vector vector);
 }

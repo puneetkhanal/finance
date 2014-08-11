@@ -9,7 +9,7 @@ public class DefaultUIFactory implements IUIFactory {
 
 	@Override
 	public AbstractDynamicPanel createTRPanel() {
-		return new AbstractDynamicPanel();
+		return new DefaultTRPanel();
 	}
 
 }
