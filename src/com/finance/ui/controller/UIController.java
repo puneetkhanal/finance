@@ -1,4 +1,4 @@
-package com.finance.ui;
+package com.finance.ui.controller;
 
 public class UIController {
 
