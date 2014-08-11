@@ -1,4 +1,4 @@
-package com.finance.ccard;
+package com.finance.ui.bank;
 
 public class JDialog_Deposit extends javax.swing.JDialog
 {

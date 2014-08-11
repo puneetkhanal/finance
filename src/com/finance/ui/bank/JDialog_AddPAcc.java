@@ -1,4 +1,4 @@
-package com.finance.bank;
+package com.finance.ui.bank;
 /*
 		A basic implementation of the JDialog class.
 */

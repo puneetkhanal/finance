@@ -1,4 +1,4 @@
-package com.finance.bank;
+package com.finance.ui.bank;
 
 import java.awt.*;
 import javax.swing.table.DefaultTableModel;

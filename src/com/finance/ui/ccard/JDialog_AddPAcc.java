@@ -1,4 +1,4 @@
-package com.finance.ccard;
+package com.finance.ui.ccard;
 /*
 		A basic implementation of the JDialog class.
 */

@@ -1,4 +1,4 @@
-package com.finance.ccard;
+package com.finance.ui.ccard;
 
 import java.awt.*;
 import javax.swing.table.DefaultTableModel;
