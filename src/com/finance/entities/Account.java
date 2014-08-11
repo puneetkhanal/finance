@@ -1,7 +1,7 @@
-package Entities;
+package com.finance.entities;
 
-import reporting.IReport;
-import interfaces.ICustomer;
+import com.finance.interfaces.ICustomer;
+import com.finance.reporting.IReport;
 
 public class Account{
 	private TransactionManager transactionManager;

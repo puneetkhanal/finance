@@ -1,4 +1,4 @@
-package reporting;
+package com.finance.reporting;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package finance;
+package com.finance;
 
 public class Main {
 

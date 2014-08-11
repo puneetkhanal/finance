@@ -1,4 +1,4 @@
-package reporting;
+package com.finance.reporting;
 
 public interface IReport {
 
