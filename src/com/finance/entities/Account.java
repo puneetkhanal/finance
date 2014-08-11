@@ -1,7 +1,6 @@
 package com.finance.entities;
 
 import com.finance.interfaces.ICustomer;
-import com.finance.reporting.IReport;
 
 public class Account{
 	private TransactionManager transactionManager;
