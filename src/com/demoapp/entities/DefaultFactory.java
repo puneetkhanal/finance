@@ -7,9 +7,9 @@ import com.finance.controllers.CustomerManager;
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Account;
 import com.finance.entities.Customer;
-import com.finance.entities.ICustomer;
 import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
+import com.finance.interfaces.ICustomer;
 import com.finance.reporting.IReportComputer;
 import com.finance.ui.view.CRForm;
 
@@ -53,8 +53,11 @@ public class DefaultFactory implements AbstractFactory{
 	public List<IDataSet> getDataSet(CustomerManager customerManager) {
 		List<IDataSet> list = new ArrayList<IDataSet>();
 		for(ICustomer c:customerManager.getAllCustomer()){
-			
+			for(Account a:c.getAccounts()){
+				list.add(new DataSet(c, a));
+			}
 		}
+		return list;
 	}
 
 }
