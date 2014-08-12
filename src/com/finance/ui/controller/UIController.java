@@ -1,7 +1,9 @@
 package com.finance.ui.controller;
 
+import java.util.List;
+
 import com.finance.controllers.FrameworkController;
-import com.finance.entities.DataSet;
+import com.finance.entities.IDataSet;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;
@@ -40,7 +42,7 @@ public class UIController {
 		// .addActionListener(new ReportActionListener());
 	}
 
-	public void updateTable(DataSet dataSet) {
+	public void updateTable(List<IDataSet> dataSetList) {
 		// to do
 		mainView.setTableModel(null);
 	}

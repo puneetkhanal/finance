@@ -11,4 +11,9 @@ public interface ICustomer {
 	public boolean sendEmail(Transaction transaction,Account account);
 	public boolean checkEmailSendingCondition(Transaction transaction);
 	public List<Account> getAccounts();
+	public Address getAddress();
+
+	public String getName();
+
+	public String getEmail();
 }

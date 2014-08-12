@@ -17,4 +17,10 @@ public class Organisation extends Customer{
 		return false;
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Organisation";
+	}
+
 }
