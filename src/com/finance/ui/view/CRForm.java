@@ -27,6 +27,22 @@ public class CRForm {
 	private String city;
 	private String state;
 	private String email;
+	private String zip;
+
+	@Override
+	public String toString() {
+		return "CRForm [name=" + name + ", street=" + street + ", city=" + city
+				+ ", state=" + state + ", email=" + email + ", zip=" + zip
+				+ "]";
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 
 	public String getName() {
 		return name;

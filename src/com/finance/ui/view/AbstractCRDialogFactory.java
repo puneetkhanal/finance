@@ -15,5 +15,5 @@ public abstract class AbstractCRDialogFactory {
 	public void setUIController(UIController uiController){
 		this.uiController=uiController;
 	}
-	public abstract JDialog createCRDialog();
+	public abstract JDialog createCRDialog(String type);
 }

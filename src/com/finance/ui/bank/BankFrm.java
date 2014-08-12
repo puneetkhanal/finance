@@ -12,8 +12,13 @@ public class BankFrm extends javax.swing.JFrame
     /****
      * init variables in the object
      ****/
-    String accountnr, clientName,street,city,zip,state,accountType,clientType,amountDeposit;
-    boolean newaccount;
+    public String accountnr, clientName,street,city;
+	public String zip;
+	public String state;
+	public String accountType;
+	public String clientType;
+	public String amountDeposit;
+    public boolean newaccount;
     private DefaultTableModel model;
     private JTable JTable1;
     private JScrollPane JScrollPane1;

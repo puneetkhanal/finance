@@ -2,6 +2,11 @@ package com.finance.ui.view;
 
 public class TRForm {
 
+	@Override
+	public String toString() {
+		return "TRForm [name=" + name + ", amount=" + amount + "]";
+	}
+
 	private String name;
 	private double amount;
 

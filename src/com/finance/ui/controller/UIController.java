@@ -1,5 +1,6 @@
 package com.finance.ui.controller;
 
+import com.finance.controllers.FrameworkController;
 import java.util.List;
 
 import com.finance.controllers.FrameworkController;
@@ -23,14 +24,12 @@ public class UIController {
 		this.crDialogFactory = crDialogFactory;
 		crDialogFactory.setUIController(this);
 		init();
-		
+
 	}
-	
-	public void setFrameWorkcontroller(FrameworkController frameworkController){
+
+	public void setFrameWorkcontroller(FrameworkController frameworkController) {
 		this.frameworkController = frameworkController;
 	}
-	
-
 
 	private void init() {
 		mainView.getCRPanel().addActionListener(
@@ -43,17 +42,16 @@ public class UIController {
 	}
 
 	public void updateTable(List<IDataSet> dataSetList) {
-		// to do
 		mainView.setTableModel(null);
 	}
 
 	public void transactionPerformed(TRForm trForm) {
-		System.out.println(trForm.getAmount());
+		System.out.println(trForm);
 
 	}
 
 	public void registerCustomer(CRForm crForm) {
-		System.out.println(crForm.getName());
+		System.out.println(crForm);
 
 	}
 }

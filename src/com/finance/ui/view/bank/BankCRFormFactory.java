@@ -10,8 +10,12 @@ public class BankCRFormFactory extends AbstractCRDialogFactory {
 	}
 
 	@Override
-	public JDialog createCRDialog() {
-		return new BankCRFormDialog(uiController);
+	public JDialog createCRDialog(String type) {
+		if (type.equalsIgnoreCase("personal")) {
+			return new PersonalFormDialog(uiController);
+		} else {
+			return new CompanyFormDialog(uiController);
+		}
 	}
 
 }

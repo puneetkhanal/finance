@@ -6,7 +6,7 @@ public class TypedJButton extends JButton {
 
 	private String type;
 
-	public TypedJButton(String type, String label) {
+	public TypedJButton(String label, String type) {
 		this.type = type;
 		this.setText(label);
 	}

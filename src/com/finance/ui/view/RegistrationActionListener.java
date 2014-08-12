@@ -18,8 +18,8 @@ public class RegistrationActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		dialogFactory.createCRDialog().show();
-		
+		TypedJButton typedButton=(TypedJButton) e.getSource();
+		dialogFactory.createCRDialog(typedButton.getType()).show();
 
 	}
 
