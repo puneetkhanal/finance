@@ -3,7 +3,8 @@ package com.finance.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.finance.entities.ICustomer;
+import com.finance.interfaces.ICustomer;
+
 
 public class CustomerManager {
 	private List<ICustomer> customers = new ArrayList<ICustomer>();

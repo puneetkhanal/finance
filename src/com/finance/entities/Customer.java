@@ -3,6 +3,8 @@ package com.finance.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.finance.interfaces.ICustomer;
+
 public abstract class Customer implements ICustomer{
 	private Address address;
 	private String name;
