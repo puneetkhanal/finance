@@ -27,8 +27,8 @@ public class Main {
 		//Logic Injection
 		System.out.println("Hello Framework");
 		
-//		finance();
-		bank();
+		finance();
+//		bank();
 //		credit();
 		
 	}

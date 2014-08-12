@@ -37,7 +37,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 			String type) {
 		
 		Transaction transaction = getTransaction(account, amount, type);
-		transactionManager.addTransaction(transaction);
+		transactionManager.addTransactionTemplate(transaction);
 		return transaction;
 	}
 
