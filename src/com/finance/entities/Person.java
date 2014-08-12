@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.finance.interfaces.IAccount;
 import com.finance.reporting.Report;
 
 
@@ -33,7 +34,7 @@ public class Person extends Customer   {
 		map.put("Name", getName());
 		map.put("customer type", getType());
 		Report myReport = new Report(map);
-		for(Account a: getAllAccount()){
+		for(IAccount a: getAllAccount()){
 			myReport.addChildReport(a.getReport());
 		}
 		return myReport;

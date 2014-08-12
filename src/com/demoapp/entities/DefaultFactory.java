@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.finance.entities.AbstractFactory;
-import com.finance.entities.Account;
 import com.finance.entities.Address;
 import com.finance.entities.Customer;
-import com.finance.entities.IDataSet;
 import com.finance.entities.Person;
 import com.finance.entities.Transaction;
+import com.finance.interfaces.IAccount;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
+import com.finance.interfaces.IDataSet;
 import com.finance.reporting.IReportComputer;
 import com.finance.ui.view.CRForm;
 
@@ -27,7 +27,7 @@ public class DefaultFactory extends AbstractFactory{
 	public List<IDataSet> getDataSet(ICustomerManager customerManager) {
 		List<IDataSet> list = new ArrayList<IDataSet>();
 		for(ICustomer c:customerManager.getAllCustomer()){
-			for(Account a:c.getAllAccount()){
+			for(IAccount a:c.getAllAccount()){
 				list.add(new DataSet(c, a));
 			}
 		}
@@ -47,7 +47,7 @@ public class DefaultFactory extends AbstractFactory{
 	}
 
 	@Override
-	public Account createAccount(CRForm form, ICustomer customer,
+	public IAccount createAccount(CRForm form, ICustomer customer,
 			String accountType) {
 		//process the form for any field required to create the account, 
 		//in this case the application itself generates the account number
@@ -55,7 +55,7 @@ public class DefaultFactory extends AbstractFactory{
 	}
 
 	@Override
-	public Transaction getTransaction(Account account, double amount,
+	public Transaction getTransaction(IAccount account, double amount,
 			String type) {
 		if(type.equals("deposit")){
 			return new Deposit(account, amount, "");

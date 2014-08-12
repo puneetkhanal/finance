@@ -2,17 +2,17 @@ package com.demoapp.entities;
 
 import java.util.Vector;
 
-import com.finance.entities.Account;
-import com.finance.entities.IDataSet;
+import com.finance.interfaces.IAccount;
 import com.finance.interfaces.ICustomer;
+import com.finance.interfaces.IDataSet;
 
 
 public class DataSet implements IDataSet<Integer>{
     public ICustomer customer;
-    public Account account;
+    public IAccount account;
 	
     
-	public DataSet(ICustomer customer, Account account) {
+	public DataSet(ICustomer customer, IAccount account) {
 		super();
 		this.customer = customer;
 		this.account = account;

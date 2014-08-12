@@ -3,6 +3,7 @@ package com.finance.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.finance.interfaces.IAccount;
 import com.finance.interfaces.ICustomer;
 
 public abstract class Customer implements ICustomer{
@@ -10,7 +11,7 @@ public abstract class Customer implements ICustomer{
 	private String name;
 	private String email;
 	
-	private List<Account> accounts = new ArrayList<Account>();
+	private List<IAccount> accounts = new ArrayList<IAccount>();
 	
 
 	public Customer(Address address, String name, String email) {
@@ -21,23 +22,23 @@ public abstract class Customer implements ICustomer{
 	}
 	
 	@Override
-	public boolean addAccount(Account account) {
+	public boolean addAccount(IAccount account) {
 		accounts.add(account);
 		return true;
 	}
 	
 	@Override
-	public boolean removeAccount(Account account) {
+	public boolean removeAccount(IAccount account) {
 		return accounts.remove(account);
 	}
 	
 	@Override
-	public List<Account> getAllAccount() {
+	public List<IAccount> getAllAccount() {
 		return accounts;
 	}
 	
 	@Override
-	public boolean sendEmail(Transaction transaction, Account account) {
+	public boolean sendEmail(Transaction transaction, IAccount account) {
 		
 		return false;
 	}

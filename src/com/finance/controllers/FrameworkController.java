@@ -4,13 +4,14 @@ import java.util.List;
 
 import com.demoapp.entities.AccountManager;
 import com.demoapp.entities.CustomerManager;
-import com.finance.entities.Account;
+import com.finance.entities.AbstractAccount;
 import com.finance.entities.Customer;
-import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
 import com.finance.interfaces.IAbstractFactory;
+import com.finance.interfaces.IAccount;
 import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomerManager;
+import com.finance.interfaces.IDataSet;
 import com.finance.interfaces.ITransactionManager;
 import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
@@ -53,7 +54,7 @@ public class FrameworkController {
 	}
 	
 	public boolean executeTransaction(int accountNumber, double amount, String type){
-		Account account = accountManger.findAccount(accountNumber);
+		IAccount account = accountManger.findAccount(accountNumber);
 		if(account!=null){
 				abstractFactory.createTransaction(account, amount, type);
 				return true;

@@ -1,11 +1,11 @@
 package com.demoapp.entities;
 
-import com.finance.entities.Account;
 import com.finance.entities.Transaction;
+import com.finance.interfaces.IAccount;
 
 public class Deposit extends Transaction {
 
-	public Deposit(Account account, Double amount, String name) {
+	public Deposit(IAccount account, Double amount, String name) {
 		super(account, amount, name);
 	}
 
