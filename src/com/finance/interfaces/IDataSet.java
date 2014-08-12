@@ -1,4 +1,4 @@
-package com.finance.entities;
+package com.finance.interfaces;
 
 import java.util.Vector;
 

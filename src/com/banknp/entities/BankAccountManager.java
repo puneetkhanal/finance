@@ -1,4 +1,4 @@
-package com.demoapp.entities;
+package com.banknp.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,15 +6,17 @@ import java.util.List;
 import com.finance.entities.AbstractAccountManager;
 import com.finance.interfaces.IAccount;
 
-public class AccountManager extends AbstractAccountManager {
-
+public class BankAccountManager extends AbstractAccountManager {
+	
 	private List<IAccount> accounts = new ArrayList<IAccount>();
+	
 
-	public void addAccount(IAccount account) {
+	
+	public void addAccount(IAccount account){
 		accounts.add(account);
 		account.setAccountManager(this);
 	}
-
+	
 	public IAccount findAccount(int account_no) {
 		for (IAccount account : accounts) {
 			if (account.getAccountNumber() == account_no) {
@@ -24,5 +26,6 @@ public class AccountManager extends AbstractAccountManager {
 		return null;
 	}
 
-
+	
+	
 }

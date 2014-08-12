@@ -1,15 +1,14 @@
-package com.demoapp.entities;
+package com.banknp.entities;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.finance.entities.AbstractTransactionManager;
-import com.finance.entities.AbstractAccount;
 import com.finance.entities.Transaction;
 import com.finance.interfaces.IAccount;
 import com.finance.reporting.ReportComputer;
 
-public class TransactionManager extends AbstractTransactionManager{
+public class BankTransactionManager extends AbstractTransactionManager{
 	private List<Transaction> transactions = new ArrayList<Transaction>();
 
 	public void addTransaction(Transaction transaction){

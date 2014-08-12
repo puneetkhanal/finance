@@ -1,6 +1,7 @@
 package com.finance.entities;
 
 import com.finance.interfaces.IAbstractFactory;
+import com.finance.interfaces.IAccount;
 import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
@@ -17,7 +18,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 			String accountType) {
 		
 		ICustomer customer = createCustomer(form, customerType);
-		Account account = createAccount(form, customer, accountType);
+		IAccount account = createAccount(form, customer, accountType);
 		customer.addAccount(account);
 		customerManager.submitCustomer(customer);
 		accountManager.addAccount(account);
@@ -32,7 +33,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 	}
 	
 	@Override
-	public final Transaction createTransaction(Account account, double amount,
+	public final Transaction createTransaction(IAccount account, double amount,
 			String type) {
 		
 		Transaction transaction = getTransaction(account, amount, type);

@@ -1,4 +1,4 @@
-package com.demoapp.entities;
+package com.banknp.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import com.finance.interfaces.IDataSet;
 import com.finance.reporting.IReportComputer;
 import com.finance.ui.view.CRForm;
 
-public class DefaultFactory extends AbstractFactory{
+public class BankFactory extends AbstractFactory{
 
 	@Override
 	public IReportComputer getReportComputer() {
@@ -28,7 +28,7 @@ public class DefaultFactory extends AbstractFactory{
 		List<IDataSet> list = new ArrayList<IDataSet>();
 		for(ICustomer c:customerManager.getAllCustomer()){
 			for(IAccount a:c.getAllAccount()){
-				list.add(new DataSet(c, a));
+				list.add(new BankDataSet(c, a));
 			}
 		}
 		return list;
@@ -51,17 +51,18 @@ public class DefaultFactory extends AbstractFactory{
 			String accountType) {
 		//process the form for any field required to create the account, 
 		//in this case the application itself generates the account number
-		return new Account(customer);
+		if(accountType.equals(BankInformation.CHECKING));
+		return new CheckingAccount(customer);
 	}
 
 	@Override
 	public Transaction getTransaction(IAccount account, double amount,
 			String type) {
 		if(type.equals("deposit")){
-			return new Deposit(account, amount, "");
+			return new BankDeposit(account, amount, "");
 		}
 		else{
-			return new Withdrawal(account, amount, "");
+			return new BankWithdrawal(account, amount, "");
 		}
 	}
 

@@ -2,13 +2,15 @@ package com.finance.entities;
 
 import java.util.Date;
 
+import com.finance.interfaces.IAccount;
+
 public abstract class Transaction {
 	private Date date;
 	protected Double amount;
 	private String name;
-	protected Account account;
+	protected IAccount account;
 	
-	public Transaction(Account account,Double amount, String name) {
+	public Transaction(IAccount account,Double amount, String name) {
 		super();
 		this.account =account;
 		this.date = new Date();

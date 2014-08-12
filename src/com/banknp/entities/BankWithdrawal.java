@@ -1,11 +1,11 @@
-package com.demoapp.entities;
+package com.banknp.entities;
 
 import com.finance.entities.Transaction;
 import com.finance.interfaces.IAccount;
 
-public class Withdrawal extends Transaction{
+public class BankWithdrawal extends Transaction{
 
-	public Withdrawal(IAccount account, Double amount, String name) {
+	public BankWithdrawal(IAccount account, Double amount, String name) {
 		super(account, -amount, name);
 	}
 

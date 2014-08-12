@@ -4,7 +4,7 @@ import com.finance.controllers.FrameworkController;
 
 import java.util.List;
 
-import com.finance.entities.IDataSet;
+import com.finance.interfaces.IDataSet;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;

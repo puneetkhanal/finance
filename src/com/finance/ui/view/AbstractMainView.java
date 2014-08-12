@@ -14,7 +14,7 @@ import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
-import com.finance.entities.IDataSet;
+import com.finance.interfaces.IDataSet;
 
 public abstract class AbstractMainView extends JFrame {
 

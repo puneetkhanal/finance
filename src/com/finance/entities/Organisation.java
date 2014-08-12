@@ -3,6 +3,7 @@ package com.finance.entities;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.finance.interfaces.IAccount;
 import com.finance.reporting.Report;
 
 public class Organisation extends Customer{
@@ -30,7 +31,7 @@ public class Organisation extends Customer{
 		map.put("Name", getName());
 		map.put("customer type", getType());
 		Report myReport = new Report(map);
-		for(Account a: getAllAccount()){
+		for(IAccount a: getAllAccount()){
 			myReport.addChildReport(a.getReport());
 		}
 		return myReport;

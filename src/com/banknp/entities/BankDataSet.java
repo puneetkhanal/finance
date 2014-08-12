@@ -1,4 +1,4 @@
-package com.demoapp.entities;
+package com.banknp.entities;
 
 import java.util.Vector;
 
@@ -7,12 +7,12 @@ import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.IDataSet;
 
 
-public class DataSet implements IDataSet<Integer>{
+public class BankDataSet implements IDataSet<Integer>{
     public ICustomer customer;
     public IAccount account;
 	
     
-	public DataSet(ICustomer customer, IAccount account) {
+	public BankDataSet(ICustomer customer, IAccount account) {
 		super();
 		this.customer = customer;
 		this.account = account;
