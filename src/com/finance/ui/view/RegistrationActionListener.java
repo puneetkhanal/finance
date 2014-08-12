@@ -3,12 +3,22 @@ package com.finance.ui.view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RegistrationActionListener implements ActionListener{
+import com.finance.ui.controller.UIController;
+
+public class RegistrationActionListener implements ActionListener {
+
+	private UIController uiController;
+
+	public RegistrationActionListener(UIController uiController) {
+		this.uiController = uiController;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		CRFormDialog customerForm = new CRFormDialog(uiController);
+		customerForm.setBounds(450, 20, 300, 330);
+		customerForm.show();
+
 	}
 
 }

@@ -9,16 +9,17 @@ import javax.swing.JPanel;
 
 public class AbstractDynamicPanel extends JPanel {
 
-	private List<JButton> buttons;
+	private List<TypedJButton> buttons;
 
 	public AbstractDynamicPanel() {
-		buttons = new ArrayList<JButton>();
+		buttons = new ArrayList<TypedJButton>();
 		for(JButton button:buttons){
 			this.add(button);
 		}
 	}
 
-	public void addButton(JButton button) {
+	public void addButton(TypedJButton button) {
+		this.add(button);
 		buttons.add(button);
 	}
 

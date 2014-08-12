@@ -1,38 +1,47 @@
 package com.finance.ui.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
+import com.finance.ui.controller.UIController;
+
 /**
  * A basic JFC based application.
  */
 public class DefaultMainView extends AbstractMainView {
-	/****
-	 * init variables in the object
-	 ****/
-	String accountnr, clientName, street, city, zip, state, accountType,
-			clientType, amountDeposit;
-	boolean newaccount;
-	private DefaultTableModel model;
-	private JTable JTable1;
-	private JScrollPane JScrollPane1;
-	DefaultMainView myframe;
-	private Object rowdata[];
+	private JTable table;
+	private UIController controller;
+	private Vector<String> columnNames;
 
 	public DefaultMainView() {
-		myframe = this;
+		columnNames = new Vector<String>();
+		columnNames.addElement("Name");
+		columnNames.addElement("State");
+		columnNames.addElement("City");
+		columnNames.addElement("Street");
 
-		setTitle("Bank Application.");
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		setSize(575, 310);
-		setVisible(false);
+		Vector<String> rowOne = new Vector<String>();
+		rowOne.add("Puneet");
+		rowOne.add("Iowa");
+		rowOne.add("Fairfield");
+		rowOne.add("1000N street");
 
-		this.getContentPane().add(getCRPanel());
-		this.getContentPane().add(getTRPanel());
+		Vector<Vector> rowData = new Vector<Vector>();
+		rowData.add(rowOne);
+		table = new JTable(new Vector<String>(), columnNames);
+		DefaultTableModel model = new DefaultTableModel(rowData, columnNames);
+
+		table.setModel(model);
+		table.setPreferredScrollableViewportSize(new Dimension(400, 100));
+		table.setFillsViewportHeight(true);
+		JScrollPane scrollPane = new JScrollPane(table);
+		this.getContentPane().add(scrollPane);
+		controller = new UIController(this);
+
 	}
 
 	/*****************************************************
@@ -100,9 +109,9 @@ public class DefaultMainView extends AbstractMainView {
 	}
 
 	@Override
-	public void setTableModel(Vector vector) {
-		// TODO Auto-generated method stub
-
+	public void setTableModel(Vector<Vector> data) {
+		DefaultTableModel model = new DefaultTableModel(data, columnNames);
+		table.setModel(model);
 	}
 
 }

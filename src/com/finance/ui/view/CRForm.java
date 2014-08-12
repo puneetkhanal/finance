@@ -2,6 +2,26 @@ package com.finance.ui.view;
 
 public class CRForm {
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	private String name;
 	private String street;
 	private String city;
