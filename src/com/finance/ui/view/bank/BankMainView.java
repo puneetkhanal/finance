@@ -3,6 +3,8 @@ package com.finance.ui.view.bank;
 import java.util.Vector;
 
 import javax.swing.UIManager;
+
+import com.finance.ui.controller.UIController;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.IUIFactory;
 
@@ -37,6 +39,7 @@ public class BankMainView extends AbstractMainView {
 			// visible.
 			AbstractMainView mainView = new BankMainView("Bank application",
 					new BankUIFactory());
+			new UIController(mainView, new BankCRFormFactory());
 			mainView.setVisible(true);
 		} catch (Throwable t) {
 			t.printStackTrace();

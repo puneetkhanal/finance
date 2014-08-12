@@ -11,9 +11,10 @@ public class DefaultMainView extends AbstractMainView {
 	private JTable table;
 	private UIController controller;
 
-	public DefaultMainView(String title,IUIFactory iuiFactory) {
-		super(title,iuiFactory);
-		controller = new UIController(this);
+	public DefaultMainView(String title, IUIFactory iuiFactory,
+			UIController uiController) {
+		super(title, iuiFactory);
+		controller = uiController;
 
 	}
 
@@ -34,7 +35,10 @@ public class DefaultMainView extends AbstractMainView {
 
 			// Create a new instance of our application's frame, and make it
 			// visible.
-			(new DefaultMainView("Finance Application",new DefaultUIFactory())).setVisible(true);
+			DefaultMainView mainView = (new DefaultMainView(
+					"Finance Application", new DefaultUIFactory(), null));
+			mainView.setVisible(true);
+			new UIController(mainView, new DefaultCRDialogFactory());
 		} catch (Throwable t) {
 			t.printStackTrace();
 			// Ensure the application exits with an error condition.

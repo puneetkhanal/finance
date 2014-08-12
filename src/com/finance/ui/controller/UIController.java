@@ -10,16 +10,19 @@ import com.finance.ui.view.TransactionActionListener;
 public class UIController {
 
 	private AbstractMainView mainView;
-	protected AbstractCRDialogFactory crFormFactory;
+	protected AbstractCRDialogFactory crDialogFactory;
 
-	public UIController(AbstractMainView mainView) {
+	public UIController(AbstractMainView mainView,
+			AbstractCRDialogFactory crDialogFactory) {
 		this.mainView = mainView;
+		this.crDialogFactory = crDialogFactory;
+		crDialogFactory.setUIController(this);
 		init();
 	}
 
 	private void init() {
 		mainView.getCRPanel().addActionListener(
-				new RegistrationActionListener(this));
+				new RegistrationActionListener(this, crDialogFactory));
 		mainView.getTRPanel().addActionListener(
 				new TransactionActionListener(this));
 

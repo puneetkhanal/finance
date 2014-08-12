@@ -8,16 +8,18 @@ import com.finance.ui.controller.UIController;
 public class RegistrationActionListener implements ActionListener {
 
 	private UIController uiController;
+	private AbstractCRDialogFactory dialogFactory;
 
-	public RegistrationActionListener(UIController uiController) {
+	public RegistrationActionListener(UIController uiController,
+			AbstractCRDialogFactory dialogFactory) {
 		this.uiController = uiController;
+		this.dialogFactory=dialogFactory;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		CRFormDialog customerForm = new CRFormDialog(uiController);
-		customerForm.setBounds(450, 20, 300, 330);
-		customerForm.show();
+		dialogFactory.createCRDialog().show();
+		
 
 	}
 

@@ -2,19 +2,17 @@ package com.finance.ui.view;
 
 import javax.swing.JDialog;
 
-import com.finance.ui.controller.UIController;
-
 public class DefaultCRDialogFactory extends AbstractCRDialogFactory {
 
-	public DefaultCRDialogFactory(UIController uiController) {
-		super(uiController);
+	public DefaultCRDialogFactory() {
+		super();
 	}
 
 	@Override
 	public JDialog createCRDialog() {
-		return new CRFormDialog(uiController);
+		JDialog crDialog = new CRFormDialog(uiController);
+		crDialog.setBounds(450, 20, 300, 330);
+		return crDialog;
 	}
-
-
 
 }

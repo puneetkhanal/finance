@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import javax.swing.UIManager;
 
+import com.finance.ui.controller.UIController;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.IUIFactory;
 
@@ -36,6 +37,7 @@ public class CCardMainView extends AbstractMainView {
 			// visible.
 			AbstractMainView mainView = new CCardMainView(
 					"Credit card application", new CCardUIFactory());
+			new UIController(mainView, new CCardCRFormFactory());
 			mainView.setVisible(true);
 		} catch (Throwable t) {
 			t.printStackTrace();

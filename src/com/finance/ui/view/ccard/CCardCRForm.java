@@ -1,5 +1,7 @@
 package com.finance.ui.view.ccard;
 
-public class CCardCRForm {
+import com.finance.ui.view.CRForm;
+
+public class CCardCRForm extends CRForm{
 
 }
