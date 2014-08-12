@@ -3,20 +3,26 @@ package com.finance.controllers;
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Account;
 import com.finance.entities.Customer;
+import com.finance.entities.DataSet;
 import com.finance.entities.Transaction;
+import com.finance.ui.controller.UIController;
 import com.finance.ui.view.CRForm;
 
 public class FrameworkController {
 	private AccountManager accountManger;
 	private CustomerManager customerManager;
 	private AbstractFactory abstractFactory;
+	private UIController viewController;
 	
 	public FrameworkController() {
-		accountManger = new AccountManager();
+		accountManger = new AccountManager(this);
 		customerManager = new CustomerManager();
 		abstractFactory = null;
 	}
 	
+	public void setUIController(UIController uiController){
+		viewController = uiController;
+	}
 	public void setApplicationFactory(AbstractFactory factory){
 		abstractFactory = factory;
 	}
@@ -45,7 +51,9 @@ public class FrameworkController {
 			}
 		}
 		return false;
-		
-		
+	}
+	
+	public void dataSetChanged(){
+		DataSet dataSet = abstractFactory.getDataSet(customerManager);
 	}
 }

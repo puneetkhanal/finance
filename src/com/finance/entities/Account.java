@@ -1,5 +1,6 @@
 package com.finance.entities;
 
+import com.finance.controllers.AccountManager;
 import com.finance.interfaces.ICustomer;
 
 public class Account{
@@ -8,13 +9,18 @@ public class Account{
 	private int accountNumber;
 	private double currentBalance;
 	private ICustomer customer;
-	
+	private AccountManager accountManager;
 	
 	public Account(int acc_no, ICustomer customer) {
 		super();
 		this.accountNumber = acc_no;
 		this.customer = customer;
 		transactionManager = new TransactionManager();
+	}
+	
+	public void setAccountManger(AccountManager accountManger){
+		this.accountManager = accountManger;
+		//accountManger.addAccount(this);
 	}
 	
 	public void addBalance(double amount){
@@ -49,6 +55,10 @@ public class Account{
 	
 	public void notifyCustomer(String transactionDetails){
 		
+	}
+	
+	public void setChanged(){
+		accountManager.setChanged();
 	}
 
 }
