@@ -11,6 +11,7 @@ import com.finance.entities.Transaction;
 import com.finance.interfaces.IAbstractFactory;
 import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomerManager;
+import com.finance.interfaces.ITransactionManager;
 import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
 import com.finance.ui.view.CRForm;
@@ -18,6 +19,7 @@ import com.finance.ui.view.CRForm;
 public class FrameworkController {
 	private IAccountManager accountManger;
 	private ICustomerManager customerManager;
+	private ITransactionManager transactionManager;
 	private IAbstractFactory abstractFactory;
 	private UIController viewController;
 	
@@ -28,35 +30,30 @@ public class FrameworkController {
 		
 	}
 	
+	public void injectServiceProviders(ICustomerManager customerManager,IAccountManager accountManager, 
+			ITransactionManager transactionManager,IAbstractFactory factory){
+		abstractFactory = factory;
+		this.customerManager = customerManager;
+		this.accountManger = accountManager;
+		this.transactionManager = transactionManager;
+		
+		if(abstractFactory!=null){
+			abstractFactory.setManagers(customerManager, accountManager, transactionManager);
+		}
+		else
+			System.out.println("Factory not Set!!! Please set inject the factory");
+	}
+	
 	public void setUIController(UIController uiController){
 		viewController = uiController;
 	}
-	public void setApplicationFactory(IAbstractFactory factory){
-		abstractFactory = factory;
-	}
 	
-	
-	public void setCustomerManager(ICustomerManager customerManager){
-		this.customerManager = customerManager;
-		if(abstractFactory!=null){
-			System.out.println("Factory not Set!!! Please set inject the factory");
-			abstractFactory.setCustomerManager(customerManager);
-		}
-	}
-	
-	public void setAccountManaget(IAccountManager accountManager){
-		this.accountManger = accountManager;
-		if(abstractFactory!=null){
-			System.out.println("Factory not Set!!! Please set inject the factory");
-			abstractFactory.setAccountManaget(accountManager);
-		}
-	}
 	public boolean executeTransaction(int accountNumber, double amount, String type){
 		Account account = accountManger.findAccount(accountNumber);
 		if(account!=null){
 			if(abstractFactory!=null){
 				Transaction transaction =abstractFactory.getTransaction(account, amount, type);
-				account.executeTransaction(transaction);
+				//account.executeTransaction(transaction);
 				return true;
 			}
 		}

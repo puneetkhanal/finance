@@ -4,13 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.demoapp.entities.AccountManager;
+
 import com.finance.interfaces.ICustomer;
 import com.finance.reporting.Report;
-import com.sun.org.apache.bcel.internal.generic.BALOAD;
+
 
 public class Account{
 	
-	private TransactionManager transactionManager;
+	private static int accountNumberGenerator =123456;
 	private int accountNumber;
 	private double currentBalance;
 	private ICustomer customer;
@@ -20,7 +21,11 @@ public class Account{
 		super();
 		this.accountNumber = acc_no;
 		this.customer = customer;
-		transactionManager = new TransactionManager();
+		
+	}
+	public Account(ICustomer customer){
+		accountNumber = accountNumberGenerator;
+		accountNumberGenerator++;
 	}
 	
 	public void setAccountManger(AccountManager accountManger){
@@ -30,14 +35,6 @@ public class Account{
 	
 	public void addBalance(double amount){
 		currentBalance+=amount;
-	}
-	
-
-	public TransactionManager getTransactionManager() {
-		return transactionManager;
-	}
-	public void executeTransaction(Transaction transaction){
-		transactionManager.addTransaction(transaction);
 	}
 	
 	

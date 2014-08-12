@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Account;
+import com.finance.entities.Address;
 import com.finance.entities.Customer;
 import com.finance.entities.IDataSet;
+import com.finance.entities.Person;
 import com.finance.entities.Transaction;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
@@ -22,21 +24,6 @@ public class DefaultFactory extends AbstractFactory{
 	}
 
 	@Override
-	public Transaction getTransaction(Account account, double amount,
-			String type) {
-		if(type.equals("deposit")){
-			return new Deposit(account, amount, "");
-		}
-		else{
-			return new Withdrawal(account, amount, "");
-		}
-	}
-
-	
-
-	
-
-	@Override
 	public List<IDataSet> getDataSet(ICustomerManager customerManager) {
 		List<IDataSet> list = new ArrayList<IDataSet>();
 		for(ICustomer c:customerManager.getAllCustomer()){
@@ -49,15 +36,33 @@ public class DefaultFactory extends AbstractFactory{
 
 	@Override
 	public Customer createCustomer(CRForm form, String customerType) {
-		// TODO Auto-generated method stub
-		return null;
+		String name = form.getName();
+		String email = form.getEmail();
+		String street = form.getStreet();
+		String city = form.getCity();
+		String state = form.getState();
+		String zipCode= form.getZip();
+		Address address =new Address(street, city, zipCode, state);
+		return new Person(address, name, email);
 	}
 
 	@Override
 	public Account createAccount(CRForm form, ICustomer customer,
 			String accountType) {
-		// TODO Auto-generated method stub
-		return null;
+		//process the form for any field required to create the account, 
+		//in this case the application itself generates the account number
+		return new Account(customer);
+	}
+
+	@Override
+	public Transaction getTransaction(Account account, double amount,
+			String type) {
+		if(type.equals("deposit")){
+			return new Deposit(account, amount, "");
+		}
+		else{
+			return new Withdrawal(account, amount, "");
+		}
 	}
 
 	
