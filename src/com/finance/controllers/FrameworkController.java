@@ -26,17 +26,21 @@ public class FrameworkController {
 	public FrameworkController(UIController uiController ) {
 		abstractFactory = null; 
 		this.viewController = uiController;
+		if(uiController!=null)
 		viewController.setFrameWorkcontroller(this);
 		
 	}
 	
 	public void injectServiceProviders(ICustomerManager customerManager,IAccountManager accountManager, 
 			ITransactionManager transactionManager,IAbstractFactory factory){
-		abstractFactory = factory;
+		
+		this.abstractFactory = factory;
 		this.customerManager = customerManager;
 		this.accountManger = accountManager;
 		this.transactionManager = transactionManager;
 		
+		customerManager.setFrameworkController(this);
+		accountManager.setFrameworkController(this);
 		if(abstractFactory!=null){
 			abstractFactory.setManagers(customerManager, accountManager, transactionManager);
 		}

@@ -50,7 +50,7 @@ public class UIController {
 	}
 
 	public void registerCustomer(CRForm crForm) {
-		System.out.println(crForm);
+		frameworkController.createCustomer(crForm, "", "");
 
 	}
 	
