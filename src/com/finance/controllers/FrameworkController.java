@@ -7,6 +7,7 @@ import com.finance.entities.Account;
 import com.finance.entities.Customer;
 import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
+import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
 import com.finance.ui.view.CRForm;
 
@@ -61,4 +62,9 @@ public class FrameworkController {
 		List<IDataSet> dataSetList = abstractFactory.getDataSet(customerManager);
 		viewController.updateTable(dataSetList);
 	}
+	
+	public Report getReport(){
+		return null;
+	}
+
 }
