@@ -1,13 +1,12 @@
 package com.finance.ui.view;
 
-import javax.swing.JButton;
-
 public class DefaultTRPanel extends AbstractDynamicPanel {
 
 	public DefaultTRPanel() {
-		JButton button = new JButton("Deposit");
 
-		JButton withdraw = new JButton("Withdraw");
+		TypedJButton button = new TypedJButton("Deposit","deposit");
+
+		TypedJButton withdraw = new TypedJButton("Withdraw","withdraw");
 		this.add(button);
 		this.addButton(button);
 		this.add(withdraw);

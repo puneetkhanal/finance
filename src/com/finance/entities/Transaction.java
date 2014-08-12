@@ -22,6 +22,7 @@ public abstract class Transaction {
 	public void execute(){
 		account.addBalance(amount);
 	}
+	@Override
 	public String toString(){
 		return "*********************Trasnsaction***************"+"\n"+
 				"  "+"acount number:"+account.getAccountNumber()+"\n"+

@@ -1,38 +1,21 @@
 package com.finance.ui.view;
 
-import java.awt.*;
-import java.util.Vector;
-
-import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
+
+import com.finance.ui.controller.UIController;
 
 /**
  * A basic JFC based application.
  */
 public class DefaultMainView extends AbstractMainView {
-	/****
-	 * init variables in the object
-	 ****/
-	String accountnr, clientName, street, city, zip, state, accountType,
-			clientType, amountDeposit;
-	boolean newaccount;
-	private DefaultTableModel model;
-	private JTable JTable1;
-	private JScrollPane JScrollPane1;
-	DefaultMainView myframe;
-	private Object rowdata[];
+	private JTable table;
+	private UIController controller;
 
-	public DefaultMainView() {
-		myframe = this;
+	public DefaultMainView(String title, IUIFactory iuiFactory,
+			UIController uiController) {
+		super(title, iuiFactory);
+		controller = uiController;
 
-		setTitle("Bank Application.");
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new BorderLayout(0, 0));
-		setSize(575, 310);
-		setVisible(false);
-
-		this.getContentPane().add(getCRPanel());
-		this.getContentPane().add(getTRPanel());
 	}
 
 	/*****************************************************
@@ -52,7 +35,10 @@ public class DefaultMainView extends AbstractMainView {
 
 			// Create a new instance of our application's frame, and make it
 			// visible.
-			(new DefaultMainView()).setVisible(true);
+			DefaultMainView mainView = (new DefaultMainView(
+					"Finance Application", new DefaultUIFactory(), null));
+			mainView.setVisible(true);
+			new UIController(mainView, new DefaultCRDialogFactory());
 		} catch (Throwable t) {
 			t.printStackTrace();
 			// Ensure the application exits with an error condition.
@@ -97,12 +83,6 @@ public class DefaultMainView extends AbstractMainView {
 			this.exitApplication();
 		} catch (Exception e) {
 		}
-	}
-
-	@Override
-	public void setTableModel(Vector vector) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

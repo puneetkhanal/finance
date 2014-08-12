@@ -4,7 +4,7 @@ public class DefaultUIFactory implements IUIFactory {
 
 	@Override
 	public AbstractDynamicPanel createCRPanel() {
-		return new AbstractDynamicPanel();
+		return new DefaultCRPanel();
 	}
 
 	@Override
