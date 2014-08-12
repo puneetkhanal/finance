@@ -128,7 +128,7 @@ public class CompanyFormDialog extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		CompanyCRForm crForm = new CompanyCRForm();
+		CompanyForm crForm = new CompanyForm();
 		crForm.setName(JTextField_NAME.getText());
 		crForm.setCity(JTextField_CT.getText());
 		crForm.setStreet(JTextField_ST.getText());

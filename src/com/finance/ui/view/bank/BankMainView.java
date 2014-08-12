@@ -39,7 +39,7 @@ public class BankMainView extends AbstractMainView {
 			// visible.
 			AbstractMainView mainView = new BankMainView("Bank application",
 					new BankUIFactory());
-			new UIController(mainView, new BankCRFormFactory());
+			new UIController(mainView, new BankCRFactory());
 			mainView.setVisible(true);
 		} catch (Throwable t) {
 			t.printStackTrace();

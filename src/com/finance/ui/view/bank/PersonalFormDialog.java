@@ -161,7 +161,7 @@ public class PersonalFormDialog extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		PersonalCRForm crForm = new PersonalCRForm();
+		PersonalForm crForm = new PersonalForm();
 		crForm.setName(JTextField_NAME.getText());
 		crForm.setCity(JTextField_CT.getText());
 		crForm.setStreet(JTextField_ST.getText());

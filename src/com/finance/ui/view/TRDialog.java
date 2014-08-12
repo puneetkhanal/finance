@@ -5,12 +5,12 @@ import javax.swing.JOptionPane;
 
 import com.finance.ui.controller.UIController;
 
-public class TRFormDialog extends JDialog {
+public class TRDialog extends JDialog {
 
 	private UIController uiController;
 	private String transactionType;
 	private int accountNumber;
-	public TRFormDialog(UIController uiController,String transactionType,int accountNumber) {
+	public TRDialog(UIController uiController,String transactionType,int accountNumber) {
 		this.uiController = uiController;
 		this.transactionType=transactionType;
 		this.accountNumber=accountNumber;
@@ -24,7 +24,7 @@ public class TRFormDialog extends JDialog {
 		// what Visual Cafe can generate, or Visual Cafe may be unable to back
 		// parse your Java file into its visual environment.
 
-		setTitle("Withdraw");
+		setTitle(transactionType);
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(500, 200);

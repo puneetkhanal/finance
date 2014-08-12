@@ -2,9 +2,9 @@ package com.finance.ui.view.bank;
 
 import com.finance.ui.view.CRForm;
 
-public class CompanyCRForm extends CRForm {
+public class PersonalForm extends CRForm {
 
-	private int numberOfEmployees;
+	private String birthDate;
 	private AccountType accountType;
 
 	public AccountType getAccountType() {
@@ -15,12 +15,12 @@ public class CompanyCRForm extends CRForm {
 		this.accountType = accountType;
 	}
 
-	public int getNumberOfEmployees() {
-		return numberOfEmployees;
+	public String getBirthDate() {
+		return birthDate;
 	}
 
-	public void setNumberOfEmployees(int numberOfEmployees) {
-		this.numberOfEmployees = numberOfEmployees;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 
 }
