@@ -1,6 +1,7 @@
 package com.finance.ui.controller;
 
 import com.finance.controllers.FrameworkController;
+import com.finance.entities.DataSet;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;
@@ -27,7 +28,7 @@ public class UIController {
 		this.frameworkController = frameworkController;
 	}
 	
-	
+
 
 	private void init() {
 		mainView.getCRPanel().addActionListener(
@@ -39,7 +40,7 @@ public class UIController {
 		// .addActionListener(new ReportActionListener());
 	}
 
-	public void updateTable() {
+	public void updateTable(DataSet dataSet) {
 		// to do
 		mainView.setTableModel(null);
 	}

@@ -57,5 +57,6 @@ public class FrameworkController {
 	
 	public void dataSetChanged(){
 		DataSet dataSet = abstractFactory.getDataSet(customerManager);
+		viewController.updateTable(dataSet);
 	}
 }
