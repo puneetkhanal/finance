@@ -26,7 +26,7 @@ public class TRFormDialog extends JDialog {
 		setTitle("Withdraw");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(277, 134);
+		setSize(500, 200);
 		setVisible(false);
 		JLabel1.setText("Acc Nr");
 		getContentPane().add(JLabel1);
@@ -44,11 +44,11 @@ public class TRFormDialog extends JDialog {
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
 		getContentPane().add(JButton_OK);
-		JButton_OK.setBounds(48, 84, 84, 24);
+		JButton_OK.setBounds(48, 60, 84, 24);
 		JButton_Calcel.setText("Cancel");
 		JButton_Calcel.setActionCommand("Cancel");
 		getContentPane().add(JButton_Calcel);
-		JButton_Calcel.setBounds(156, 84, 84, 24);
+		JButton_Calcel.setBounds(156, 60, 84, 24);
 
 		JTextField_NAME.setText(accnr);
 

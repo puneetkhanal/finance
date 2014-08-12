@@ -48,14 +48,10 @@ public class CRFormDialog extends JDialog {
 		getContentPane().add(JLabel5);
 		JLabel5.setForeground(java.awt.Color.black);
 		JLabel5.setBounds(12, 180, 48, 24);
-		JLabel6.setText("Birthdate");
-		getContentPane().add(JLabel6);
-		JLabel6.setForeground(java.awt.Color.black);
-		JLabel6.setBounds(12, 204, 96, 24);
 		JLabel7.setText("Email");
 		getContentPane().add(JLabel7);
 		JLabel7.setForeground(java.awt.Color.black);
-		JLabel7.setBounds(12, 228, 48, 24);
+		JLabel7.setBounds(12, 204, 96, 24);
 		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(84, 84, 156, 20);
 		getContentPane().add(JTextField_CT);
@@ -67,7 +63,7 @@ public class CRFormDialog extends JDialog {
 		getContentPane().add(JTextField_ZIP);
 		JTextField_ZIP.setBounds(84, 180, 156, 20);
 		getContentPane().add(JTextField_EM);
-		JTextField_EM.setBounds(84, 228, 156, 20);
+		JTextField_EM.setBounds(84, 204, 156, 20);
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
 		getContentPane().add(JButton_OK);

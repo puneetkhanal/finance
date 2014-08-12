@@ -1,14 +1,15 @@
 package com.finance.ui.controller;
 
 import com.finance.controllers.FrameworkController;
+
 import java.util.List;
 
-import com.finance.controllers.FrameworkController;
 import com.finance.entities.IDataSet;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;
 import com.finance.ui.view.RegistrationActionListener;
+import com.finance.ui.view.ReportActionListener;
 import com.finance.ui.view.TRForm;
 import com.finance.ui.view.TransactionActionListener;
 
@@ -36,22 +37,24 @@ public class UIController {
 				new RegistrationActionListener(this, crDialogFactory));
 		mainView.getTRPanel().addActionListener(
 				new TransactionActionListener(this));
-
-		// mainView.getReportButton()
-		// .addActionListener(new ReportActionListener());
+		mainView.getReportButton()
+				.addActionListener(new ReportActionListener());
 	}
 
 	public void updateTable(List<IDataSet> dataSetList) {
-		mainView.setTableModel(null);
+		mainView.setTableModel(dataSetList);
 	}
 
 	public void transactionPerformed(TRForm trForm) {
 		System.out.println(trForm);
-
 	}
 
 	public void registerCustomer(CRForm crForm) {
 		System.out.println(crForm);
 
+	}
+	
+	public int  getAccountNumber(){
+		return mainView.getAccountNumber();
 	}
 }

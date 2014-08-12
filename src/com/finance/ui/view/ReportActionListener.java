@@ -7,7 +7,8 @@ public class ReportActionListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		ReportView reportView=new ReportView();
+		reportView.show();
 		
 	}
 
