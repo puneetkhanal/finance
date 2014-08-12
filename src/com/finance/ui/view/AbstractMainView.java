@@ -48,24 +48,10 @@ public abstract class AbstractMainView extends JFrame {
 
 		columnNames = new Vector<String>();
 		columnNames.addElement("Name");
-		columnNames.addElement("1");
-		columnNames.addElement("State");
-		columnNames.addElement("City");
-		columnNames.addElement("Street");
-		columnNames.addElement("Zip");
-
-		Vector<String> rowOne = new Vector<String>();
-		rowOne.add("1");
-		rowOne.add("Puneet");
-		rowOne.add("Iowa");
-		rowOne.add("Fairfield");
-		rowOne.add("1000N street");
-		rowOne.add("52557");
-
-		Vector<Vector> rowData = new Vector<Vector>();
-		rowData.add(rowOne);
+		columnNames.addElement("Account Number");
+		columnNames.addElement("Balance");
 		table = new JTable(new Vector<String>(), columnNames);
-		DefaultTableModel model = new DefaultTableModel(rowData, columnNames);
+		DefaultTableModel model = new DefaultTableModel(new Vector<String>(), columnNames);
 
 		table.setModel(model);
 		table.setPreferredScrollableViewportSize(new Dimension(400, 100));

@@ -35,8 +35,7 @@ public class Main {
 		
 		frameworkController.setUIController(uiController);
 		uiController.setFrameWorkcontroller(frameworkController);
-		
-		mainView.pack();
+
 		mainView.setVisible(true);
 		
 	}

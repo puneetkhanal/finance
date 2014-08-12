@@ -7,12 +7,13 @@ import com.finance.ui.controller.UIController;
 
 public class TRFormDialog extends JDialog {
 
-	// private BankFrm parentframe;
-	private String accnr;
 	private UIController uiController;
-
-	public TRFormDialog(UIController uiController) {
+	private String transactionType;
+	private int accountNumber;
+	public TRFormDialog(UIController uiController,String transactionType,int accountNumber) {
 		this.uiController = uiController;
+		this.transactionType=transactionType;
+		this.accountNumber=accountNumber;
 		// super(parent);
 		// parentframe=parent;
 		// accnr = aaccnr;
@@ -37,6 +38,7 @@ public class TRFormDialog extends JDialog {
 		JLabel2.setForeground(java.awt.Color.black);
 		JLabel2.setBounds(12, 36, 48, 24);
 		JTextField_NAME.setEditable(false);
+		
 		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(84, 12, 156, 20);
 		getContentPane().add(JTextField_AMT);
@@ -50,7 +52,7 @@ public class TRFormDialog extends JDialog {
 		getContentPane().add(JButton_Calcel);
 		JButton_Calcel.setBounds(156, 60, 84, 24);
 
-		JTextField_NAME.setText(accnr);
+		JTextField_NAME.setText(accountNumber+"");
 
 		SymAction lSymAction = new SymAction();
 		JButton_OK.addActionListener(lSymAction);
@@ -81,6 +83,8 @@ public class TRFormDialog extends JDialog {
 		try {
 			TRForm trForm = new TRForm();
 			trForm.setAmount(Double.parseDouble(JTextField_AMT.getText()));
+			trForm.setTransactionType(transactionType);
+			trForm.setName(JTextField_NAME.getText());
 			uiController.transactionPerformed(trForm);
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Please enter valid amount.");

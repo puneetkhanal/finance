@@ -2,6 +2,8 @@ package com.finance.ui.view;
 
 public class TRForm {
 
+	private String transactionType;
+
 	@Override
 	public String toString() {
 		return "TRForm [name=" + name + ", amount=" + amount + "]";
@@ -9,6 +11,14 @@ public class TRForm {
 
 	private String name;
 	private double amount;
+
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
 
 	public String getName() {
 		return name;

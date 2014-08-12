@@ -46,16 +46,17 @@ public class UIController {
 	}
 
 	public void transactionPerformed(TRForm trForm) {
-		
-		System.out.println(trForm);
+		frameworkController.executeTransaction(
+				Integer.parseInt(trForm.getName()), trForm.getAmount(),
+				trForm.getTransactionType());
 	}
 
 	public void registerCustomer(CRForm crForm) {
 		frameworkController.createCustomer(crForm, "", "");
 
 	}
-	
-	public int  getAccountNumber(){
+
+	public int getAccountNumber() {
 		return mainView.getAccountNumber();
 	}
 }
