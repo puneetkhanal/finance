@@ -1,4 +1,4 @@
-package com.finance.interfaces;
+package com.finance.entities;
 
 import java.util.List;
 
