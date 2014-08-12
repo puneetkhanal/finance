@@ -9,7 +9,7 @@ public class DefaultCRDialogFactory extends AbstractCRDialogFactory {
 	}
 
 	@Override
-	public JDialog createCRDialog() {
+	public JDialog createCRDialog(String type) {
 		JDialog crDialog = new CRFormDialog(uiController);
 		crDialog.setBounds(450, 20, 300, 330);
 		return crDialog;

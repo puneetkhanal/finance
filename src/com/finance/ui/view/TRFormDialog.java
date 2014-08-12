@@ -1,6 +1,7 @@
 package com.finance.ui.view;
 
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 import com.finance.ui.controller.UIController;
 
@@ -77,9 +78,13 @@ public class TRFormDialog extends JDialog {
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		// parentframe.amountDeposit=JTextField_AMT.getText();
-		TRForm trForm = new TRForm();
-		trForm.setAmount(Double.parseDouble(JTextField_AMT.getText()));
-		uiController.transactionPerformed(trForm);
+		try {
+			TRForm trForm = new TRForm();
+			trForm.setAmount(Double.parseDouble(JTextField_AMT.getText()));
+			uiController.transactionPerformed(trForm);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Please enter valid amount.");
+		}
 		dispose();
 	}
 
