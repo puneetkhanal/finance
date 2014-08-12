@@ -19,6 +19,7 @@ import com.finance.ui.view.bank.BankCRFormFactory;
 import com.finance.ui.view.bank.BankMainView;
 import com.finance.ui.view.bank.BankUIFactory;
 import com.finance.ui.view.ccard.CCardCRFormFactory;
+import com.finance.ui.view.ccard.CCardMainView;
 import com.finance.ui.view.ccard.CCardUIFactory;
 
 public class Main {
@@ -61,7 +62,7 @@ public class Main {
 		frameworkController.injectServiceProviders(customerManager, accountManager, transactionManager, myFactory);
 		
 		
-		AbstractMainView mainView=new DefaultMainView("Finance Application", new BankUIFactory());
+		AbstractMainView mainView=new BankMainView("Finance Application", new BankUIFactory());
 		UIController uiController =new UIController(mainView, new BankCRFormFactory());
 		
 		frameworkController.setUIController(uiController);
@@ -80,7 +81,7 @@ public class Main {
 		frameworkController.injectServiceProviders(customerManager, accountManager, transactionManager, myFactory);
 		
 		
-		AbstractMainView mainView=new BankMainView("Finance Application", new CCardUIFactory());
+		AbstractMainView mainView=new CCardMainView("Finance Application", new CCardUIFactory());
 		UIController uiController =new UIController(mainView, new CCardCRFormFactory());
 		
 		frameworkController.setUIController(uiController);
