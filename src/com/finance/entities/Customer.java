@@ -32,13 +32,13 @@ public abstract class Customer implements ICustomer{
 	}
 	
 	@Override
-	public List<Account> getAccounts() {
+	public List<Account> getAllAccount() {
 		return accounts;
 	}
 	
 	@Override
 	public boolean sendEmail(Transaction transaction, Account account) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 	@Override

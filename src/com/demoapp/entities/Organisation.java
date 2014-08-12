@@ -1,8 +1,13 @@
 package com.demoapp.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.finance.entities.Account;
 import com.finance.entities.Address;
 import com.finance.entities.Customer;
 import com.finance.entities.Transaction;
+import com.finance.reporting.Report;
 
 public class Organisation extends Customer{
 
@@ -21,6 +26,18 @@ public class Organisation extends Customer{
 	public String getType() {
 		// TODO Auto-generated method stub
 		return "Organisation";
+	}
+
+	@Override
+	public Report getReport() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("Name", getName());
+		map.put("customer type", getType());
+		Report myReport = new Report(map);
+		for(Account a: getAllAccount()){
+			myReport.addChildReport(a.getReport());
+		}
+		return myReport;
 	}
 
 }

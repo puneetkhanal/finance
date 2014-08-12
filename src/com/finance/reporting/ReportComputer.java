@@ -6,7 +6,6 @@ public class ReportComputer implements IReportComputer<Report, Transaction> {
 	private Report report;
 	@Override
 	public void compute(Transaction t) {
-		// TODO Auto-generated method stub
 		
 	}
 	@Override

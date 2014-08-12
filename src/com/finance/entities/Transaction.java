@@ -21,6 +21,7 @@ public abstract class Transaction {
 	}
 	public void execute(){
 		account.addBalance(amount);
+		account.notifyCustomer(this);
 	}
 	@Override
 	public String toString(){

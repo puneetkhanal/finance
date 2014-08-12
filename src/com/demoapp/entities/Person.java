@@ -1,10 +1,15 @@
 package com.demoapp.entities;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import com.finance.entities.Account;
 import com.finance.entities.Address;
 import com.finance.entities.Customer;
 import com.finance.entities.Transaction;
+import com.finance.reporting.Report;
 
 
 public class Person extends Customer   {
@@ -25,6 +30,20 @@ public class Person extends Customer   {
 		// TODO Auto-generated method stub
 		return "Person";
 	}
+
+	@Override
+	public Report getReport() {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("Name", getName());
+		map.put("customer type", getType());
+		Report myReport = new Report(map);
+		for(Account a: getAllAccount()){
+			myReport.addChildReport(a.getReport());
+		}
+		return myReport;
+	}
+
+	
 
 
 }

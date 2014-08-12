@@ -3,7 +3,6 @@ package com.demoapp.entities;
 import java.util.Vector;
 
 import com.finance.entities.Account;
-import com.finance.entities.Customer;
 import com.finance.entities.IDataSet;
 import com.finance.interfaces.ICustomer;
 
