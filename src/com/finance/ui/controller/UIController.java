@@ -15,14 +15,16 @@ public class UIController {
 	private FrameworkController frameworkController;
 
 	public UIController(AbstractMainView mainView,
-			AbstractCRDialogFactory crDialogFactory,FrameworkController frameworkController) {
+			AbstractCRDialogFactory crDialogFactory) {
 		this.mainView = mainView;
 		this.crDialogFactory = crDialogFactory;
-		this.frameworkController = frameworkController;
-		frameworkController.setUIController(this);
 		crDialogFactory.setUIController(this);
 		init();
 		
+	}
+	
+	public void setFrameWorkcontroller(FrameworkController frameworkController){
+		this.frameworkController = frameworkController;
 	}
 	
 	

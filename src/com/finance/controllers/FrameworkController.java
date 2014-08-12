@@ -14,10 +14,12 @@ public class FrameworkController {
 	private AbstractFactory abstractFactory;
 	private UIController viewController;
 	
-	public FrameworkController() {
+	public FrameworkController(UIController uiController ) {
 		accountManger = new AccountManager(this);
 		customerManager = new CustomerManager();
 		abstractFactory = null;
+		this.viewController = uiController;
+		viewController.setFrameWorkcontroller(this);
 	}
 	
 	public void setUIController(UIController uiController){
