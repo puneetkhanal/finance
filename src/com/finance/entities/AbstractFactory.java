@@ -23,8 +23,10 @@ public abstract class AbstractFactory implements IAbstractFactory {
 	 public final void setCustomerManager(ICustomerManager customerManager){
 		this.customerManager = customerManager;
 	}
-	 public final void setAccountManaget(IAccountManager accountManager){
+	public final void setAccountManaget(IAccountManager accountManager){
 		this.accountManager = accountManager;
 	}
+	
+	 
 
 }

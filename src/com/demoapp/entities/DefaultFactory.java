@@ -3,15 +3,11 @@ package com.demoapp.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.w3c.dom.views.AbstractView;
-
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Account;
 import com.finance.entities.Customer;
 import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
-import com.finance.interfaces.IAbstractFactory;
-import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.reporting.IReportComputer;

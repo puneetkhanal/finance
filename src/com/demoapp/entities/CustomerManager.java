@@ -3,11 +3,13 @@ package com.demoapp.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.finance.entities.AbstractAccountManager;
+import com.finance.entities.AbstractCustomerManager;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 
 
-public class CustomerManager implements ICustomerManager {
+public class CustomerManager extends AbstractCustomerManager {
 	private List<ICustomer> customers = new ArrayList<ICustomer>();
 	
 	public boolean addCustomer(ICustomer customer){
