@@ -41,5 +41,20 @@ public abstract class Customer implements ICustomer{
 	}
 	@Override
 	public abstract boolean checkEmailSendingCondition(Transaction transaction); 
+	public abstract String getType();
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	
+	
 
 }

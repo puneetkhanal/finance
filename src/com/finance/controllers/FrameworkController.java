@@ -1,9 +1,11 @@
 package com.finance.controllers;
 
+import java.util.List;
+
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Account;
 import com.finance.entities.Customer;
-import com.finance.entities.DataSet;
+import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
 import com.finance.ui.controller.UIController;
 import com.finance.ui.view.CRForm;
@@ -41,8 +43,8 @@ public class FrameworkController {
 		return false;
 	}
 	
-	public boolean createCustomer(CRForm form, String type ){
-		Customer customer = abstractFactory.getCustomer(form,type);		
+	public boolean createCustomer(CRForm form, String customerType, String accountType ){
+		Customer customer = abstractFactory.getCustomer(form,customerType,accountType);		
 		if(customer!=null){
 			Account account = abstractFactory.getAccount(form,customer);
 			if(account!=null){
@@ -56,7 +58,7 @@ public class FrameworkController {
 	}
 	
 	public void dataSetChanged(){
-		DataSet dataSet = abstractFactory.getDataSet(customerManager);
-		viewController.updateTable(dataSet);
+		List<IDataSet> dataSetList = abstractFactory.getDataSet(customerManager);
+		viewController.updateTable(dataSetList);
 	}
 }
