@@ -1,15 +1,17 @@
 package com.finance.ui.view;
 
-import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.util.Vector;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 
 public abstract class AbstractMainView extends JFrame {
 
@@ -17,12 +19,13 @@ public abstract class AbstractMainView extends JFrame {
 	private IUIFactory uiFactory;
 	private AbstractDynamicPanel crPanel;
 	private AbstractDynamicPanel trPanel;
-
-	public AbstractMainView() {
-		uiFactory = new DefaultUIFactory();
+	protected Vector<String> columnNames;
+	protected JTable table;
+	public AbstractMainView(String title,IUIFactory uiFactory) {
+		this.uiFactory=uiFactory;
 		crPanel = uiFactory.createCRPanel();
 		trPanel = uiFactory.createTRPanel();
-		setTitle("Finance Application.");
+		setTitle(title);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new FlowLayout());
 		setSize(575, 310);
@@ -34,7 +37,33 @@ public abstract class AbstractMainView extends JFrame {
 		operationsPanel.add(crPanel);
 		operationsPanel.add(trPanel);
 //		operationsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
 		this.getContentPane().add(operationsPanel);
+		
+		columnNames = new Vector<String>();
+		columnNames.addElement("Name");
+		columnNames.addElement("State");
+		columnNames.addElement("City");
+		columnNames.addElement("Street");
+		columnNames.addElement("Zip");
+
+		Vector<String> rowOne = new Vector<String>();
+		rowOne.add("Puneet");
+		rowOne.add("Iowa");
+		rowOne.add("Fairfield");
+		rowOne.add("1000N street");
+		rowOne.add("52557");
+
+		Vector<Vector> rowData = new Vector<Vector>();
+		rowData.add(rowOne);
+		table = new JTable(new Vector<String>(), columnNames);
+		DefaultTableModel model = new DefaultTableModel(rowData, columnNames);
+
+		table.setModel(model);
+		table.setPreferredScrollableViewportSize(new Dimension(400, 100));
+		table.setFillsViewportHeight(true);
+		JScrollPane scrollPane = new JScrollPane(table);
+		this.getContentPane().add(scrollPane);
 	}
 
 	public AbstractDynamicPanel getCRPanel() {
@@ -53,5 +82,8 @@ public abstract class AbstractMainView extends JFrame {
 		return reportButton;
 	}
 
-	public abstract void setTableModel(Vector<Vector> data);
+	public void setTableModel(Vector<Vector> data){
+		DefaultTableModel model = new DefaultTableModel(data, columnNames);
+		table.setModel(model);
+	}
 }

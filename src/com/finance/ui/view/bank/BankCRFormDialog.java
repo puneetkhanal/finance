@@ -1,7 +1,5 @@
 package com.finance.ui.view.bank;
 
-import javax.swing.JDialog;
-
 import com.finance.ui.controller.UIController;
 import com.finance.ui.view.CRFormDialog;
 

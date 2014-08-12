@@ -1,8 +1,5 @@
 package com.finance.reporting;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import com.finance.entities.Transaction;
 
 public class ReportComputer implements IReportComputer<Report, Transaction> {

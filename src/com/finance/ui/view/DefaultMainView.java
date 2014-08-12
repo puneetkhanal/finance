@@ -1,10 +1,5 @@
 package com.finance.ui.view;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.util.Vector;
-
-import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
 import com.finance.ui.controller.UIController;
@@ -15,31 +10,9 @@ import com.finance.ui.controller.UIController;
 public class DefaultMainView extends AbstractMainView {
 	private JTable table;
 	private UIController controller;
-	private Vector<String> columnNames;
 
-	public DefaultMainView() {
-		columnNames = new Vector<String>();
-		columnNames.addElement("Name");
-		columnNames.addElement("State");
-		columnNames.addElement("City");
-		columnNames.addElement("Street");
-
-		Vector<String> rowOne = new Vector<String>();
-		rowOne.add("Puneet");
-		rowOne.add("Iowa");
-		rowOne.add("Fairfield");
-		rowOne.add("1000N street");
-
-		Vector<Vector> rowData = new Vector<Vector>();
-		rowData.add(rowOne);
-		table = new JTable(new Vector<String>(), columnNames);
-		DefaultTableModel model = new DefaultTableModel(rowData, columnNames);
-
-		table.setModel(model);
-		table.setPreferredScrollableViewportSize(new Dimension(400, 100));
-		table.setFillsViewportHeight(true);
-		JScrollPane scrollPane = new JScrollPane(table);
-		this.getContentPane().add(scrollPane);
+	public DefaultMainView(String title,IUIFactory iuiFactory) {
+		super(title,iuiFactory);
 		controller = new UIController(this);
 
 	}
@@ -61,7 +34,7 @@ public class DefaultMainView extends AbstractMainView {
 
 			// Create a new instance of our application's frame, and make it
 			// visible.
-			(new DefaultMainView()).setVisible(true);
+			(new DefaultMainView("Finance Application",new DefaultUIFactory())).setVisible(true);
 		} catch (Throwable t) {
 			t.printStackTrace();
 			// Ensure the application exits with an error condition.
@@ -106,12 +79,6 @@ public class DefaultMainView extends AbstractMainView {
 			this.exitApplication();
 		} catch (Exception e) {
 		}
-	}
-
-	@Override
-	public void setTableModel(Vector<Vector> data) {
-		DefaultTableModel model = new DefaultTableModel(data, columnNames);
-		table.setModel(model);
 	}
 
 }
