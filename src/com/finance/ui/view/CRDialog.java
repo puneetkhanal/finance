@@ -8,11 +8,11 @@ import com.finance.ui.controller.UIController;
  A basic implementation of the JDialog class.
  */
 
-public class CRFormDialog extends JDialog {
+public class CRDialog extends JDialog {
 
 	protected UIController uiController;
 
-	public CRFormDialog(UIController uiController) {
+	public CRDialog(UIController uiController) {
 		super();
 		this.uiController = uiController;
 

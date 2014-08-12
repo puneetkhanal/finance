@@ -15,7 +15,7 @@ import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.DefaultCRDialogFactory;
 import com.finance.ui.view.DefaultMainView;
 import com.finance.ui.view.DefaultUIFactory;
-import com.finance.ui.view.bank.BankCRFormFactory;
+import com.finance.ui.view.bank.BankCRFactory;
 import com.finance.ui.view.bank.BankMainView;
 import com.finance.ui.view.bank.BankUIFactory;
 import com.finance.ui.view.ccard.CCardCRFormFactory;
@@ -63,7 +63,7 @@ public class Main {
 		
 		
 		AbstractMainView mainView=new BankMainView("Finance Application", new BankUIFactory());
-		UIController uiController =new UIController(mainView, new BankCRFormFactory());
+		UIController uiController =new UIController(mainView, new BankCRFactory());
 		
 		frameworkController.setUIController(uiController);
 		uiController.setFrameWorkcontroller(frameworkController);

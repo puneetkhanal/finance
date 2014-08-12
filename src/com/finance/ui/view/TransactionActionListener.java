@@ -16,7 +16,7 @@ public class TransactionActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		TypedJButton button=(TypedJButton) e.getSource();
-		TRFormDialog trDialog = new TRFormDialog(uiController,button.getType(),uiController.getAccountNumber());
+		TRDialog trDialog = new TRDialog(uiController,button.getType(),uiController.getAccountNumber());
 		trDialog.setBounds(430, 15, 275, 140);
 		trDialog.show();
 	}

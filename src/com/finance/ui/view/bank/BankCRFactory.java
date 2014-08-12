@@ -4,9 +4,9 @@ import javax.swing.JDialog;
 
 import com.finance.ui.view.AbstractCRDialogFactory;
 
-public class BankCRFormFactory extends AbstractCRDialogFactory {
+public class BankCRFactory extends AbstractCRDialogFactory {
 
-	public BankCRFormFactory() {
+	public BankCRFactory() {
 	}
 
 	@Override
