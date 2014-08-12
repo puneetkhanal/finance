@@ -9,12 +9,9 @@ import com.finance.ui.controller.UIController;
  */
 public class DefaultMainView extends AbstractMainView {
 	private JTable table;
-	private UIController controller;
 
-	public DefaultMainView(String title, IUIFactory iuiFactory,
-			UIController uiController) {
+	public DefaultMainView(String title, IUIFactory iuiFactory) {
 		super(title, iuiFactory);
-		controller = uiController;
 
 	}
 
@@ -36,7 +33,7 @@ public class DefaultMainView extends AbstractMainView {
 			// Create a new instance of our application's frame, and make it
 			// visible.
 			DefaultMainView mainView = (new DefaultMainView(
-					"Finance Application", new DefaultUIFactory(), null));
+					"Finance Application", new DefaultUIFactory()));
 			mainView.setVisible(true);
 			new UIController(mainView, new DefaultCRDialogFactory());
 		} catch (Throwable t) {
