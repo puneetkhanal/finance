@@ -46,6 +46,7 @@ public class UIController {
 	}
 
 	public void transactionPerformed(TRForm trForm) {
+		
 		System.out.println(trForm);
 	}
 

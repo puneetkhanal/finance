@@ -11,7 +11,8 @@ import com.finance.reporting.Report;
 
 public class Account{
 	
-	private static int accountNumberGenerator =123456;
+	private static int accountNumberGenerator = 123456;
+	//private double 
 	private int accountNumber;
 	private double currentBalance;
 	private ICustomer customer;
