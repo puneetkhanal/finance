@@ -51,11 +51,8 @@ public class FrameworkController {
 	public boolean executeTransaction(int accountNumber, double amount, String type){
 		Account account = accountManger.findAccount(accountNumber);
 		if(account!=null){
-			if(abstractFactory!=null){
-				Transaction transaction =abstractFactory.getTransaction(account, amount, type);
-				//account.executeTransaction(transaction);
+				abstractFactory.createTransaction(account, amount, type);
 				return true;
-			}
 		}
 		return false;
 	}
