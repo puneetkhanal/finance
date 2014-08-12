@@ -12,12 +12,19 @@ import com.finance.ui.view.CRForm;
 
 public interface IAbstractFactory {
 	public IReportComputer getReportComputer();
+	
 	public Transaction getTransaction(Account account,double amount,String type);
+	public Transaction createTransaction(Account account,double amount,String type);
+	
 	public Customer createCustomer(CRForm form, String customerType);
-	public Account createAccount(CRForm form, ICustomer customer,String accountType);
-	public List<IDataSet> getDataSet(ICustomerManager customerManager);
 	public void createCustomerTemplate(CRForm form, String customerType,String accountType);
 	
-	public void setCustomerManager(ICustomerManager customerManager);
-	public void setAccountManaget(IAccountManager accountManager);
+	public Account createAccount(CRForm form, ICustomer customer,String accountType);
+	
+	public List<IDataSet> getDataSet(ICustomerManager customerManager);
+	
+	
+	public void setManagers(ICustomerManager customerManager,IAccountManager accountManager,ITransactionManager transactionManager);
+	
+
 }

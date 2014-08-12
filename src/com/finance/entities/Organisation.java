@@ -1,22 +1,15 @@
-package com.demoapp.entities;
+package com.finance.entities;
 
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import com.finance.entities.Account;
-import com.finance.entities.Address;
-import com.finance.entities.Customer;
-import com.finance.entities.Transaction;
 import com.finance.reporting.Report;
 
+public class Organisation extends Customer{
 
-public class Person extends Customer   {
-	private Date dob;
-	public Person(Address address, String name, String email) {
+	public Organisation(Address address, String name, String email) {
 		super(address, name, email);
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -28,7 +21,7 @@ public class Person extends Customer   {
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return "Person";
+		return "Organisation";
 	}
 
 	@Override
@@ -42,8 +35,5 @@ public class Person extends Customer   {
 		}
 		return myReport;
 	}
-
-	
-
 
 }
