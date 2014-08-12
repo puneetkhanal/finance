@@ -17,7 +17,12 @@ public class BankAccountManager extends AbstractAccountManager {
 		account.setAccountManager(this);
 	}
 	
-	public IAccount findAccount(int account_no){
+	public IAccount findAccount(int account_no) {
+		for (IAccount account : accounts) {
+			if (account.getAccountNumber() == account_no) {
+				return account;
+			}
+		}
 		return null;
 	}
 

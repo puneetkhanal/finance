@@ -8,5 +8,5 @@ public interface ITransactionManager {
 
 	public void addTransaction(Transaction transaction);
 	public void addTransactionTemplate(Transaction transaction);
-	public void computeReport(AbstractAccount account,ReportComputer reportComputer);
+	public void computeReport(IAccount account,ReportComputer reportComputer);
 }
