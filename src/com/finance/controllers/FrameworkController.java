@@ -2,36 +2,55 @@ package com.finance.controllers;
 
 import java.util.List;
 
-import com.finance.entities.AbstractFactory;
+import com.demoapp.entities.AccountManager;
+import com.demoapp.entities.CustomerManager;
 import com.finance.entities.Account;
 import com.finance.entities.Customer;
 import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
+import com.finance.interfaces.IAbstractFactory;
+import com.finance.interfaces.IAccountManager;
+import com.finance.interfaces.ICustomerManager;
 import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
 import com.finance.ui.view.CRForm;
 
 public class FrameworkController {
-	private AccountManager accountManger;
-	private CustomerManager customerManager;
-	private AbstractFactory abstractFactory;
+	private IAccountManager accountManger;
+	private ICustomerManager customerManager;
+	private IAbstractFactory abstractFactory;
 	private UIController viewController;
 	
 	public FrameworkController(UIController uiController ) {
-		accountManger = new AccountManager(this);
-		customerManager = new CustomerManager();
-		abstractFactory = null;
+		abstractFactory = null; 
 		this.viewController = uiController;
 		viewController.setFrameWorkcontroller(this);
+		
 	}
 	
 	public void setUIController(UIController uiController){
 		viewController = uiController;
 	}
-	public void setApplicationFactory(AbstractFactory factory){
+	public void setApplicationFactory(IAbstractFactory factory){
 		abstractFactory = factory;
 	}
 	
+	
+	public void setCustomerManager(ICustomerManager customerManager){
+		this.customerManager = customerManager;
+		if(abstractFactory!=null){
+			System.out.println("Factory not Set!!! Please set inject the factory");
+			abstractFactory.setCustomerManager(customerManager);
+		}
+	}
+	
+	public void setAccountManaget(IAccountManager accountManager){
+		this.accountManger = accountManager;
+		if(abstractFactory!=null){
+			System.out.println("Factory not Set!!! Please set inject the factory");
+			abstractFactory.setAccountManaget(accountManager);
+		}
+	}
 	public boolean executeTransaction(int accountNumber, double amount, String type){
 		Account account = accountManger.findAccount(accountNumber);
 		if(account!=null){
@@ -45,17 +64,8 @@ public class FrameworkController {
 	}
 	
 	public boolean createCustomer(CRForm form, String customerType, String accountType ){
-		Customer customer = abstractFactory.getCustomer(form,customerType,accountType);		
-		if(customer!=null){
-			Account account = abstractFactory.getAccount(form,customer);
-			if(account!=null){
-				customer.addAccount(account);
-				customerManager.addCustomer(customer);
-				accountManger.addAccount(account);
-				return true;
-			}
-		}
-		return false;
+		abstractFactory.createCustomerTemplate(form, customerType, accountType);		
+		return true;
 	}
 	
 	public void dataSetChanged(){

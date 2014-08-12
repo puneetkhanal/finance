@@ -3,17 +3,17 @@ package com.demoapp.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.finance.controllers.CustomerManager;
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Account;
 import com.finance.entities.Customer;
 import com.finance.entities.IDataSet;
 import com.finance.entities.Transaction;
 import com.finance.interfaces.ICustomer;
+import com.finance.interfaces.ICustomerManager;
 import com.finance.reporting.IReportComputer;
 import com.finance.ui.view.CRForm;
 
-public class DefaultFactory implements AbstractFactory{
+public class DefaultFactory extends AbstractFactory{
 
 	@Override
 	public IReportComputer getReportComputer() {
@@ -32,32 +32,34 @@ public class DefaultFactory implements AbstractFactory{
 		}
 	}
 
-	@Override
-	public Customer getCustomer(CRForm form, String customerType,String accountType) {
-		String name = form.getName();
-		String email = form.getEmail();
-		String street = form.getStreet();
-		String city = form.getCity();
-		String state = form.getState();
-		//
-		return null;
-	}
+	
+
+	
 
 	@Override
-	public Account getAccount(CRForm form, ICustomer customer) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<IDataSet> getDataSet(CustomerManager customerManager) {
+	public List<IDataSet> getDataSet(ICustomerManager customerManager) {
 		List<IDataSet> list = new ArrayList<IDataSet>();
 		for(ICustomer c:customerManager.getAllCustomer()){
-			for(Account a:c.getAccounts()){
+			for(Account a:c.getAllAccount()){
 				list.add(new DataSet(c, a));
 			}
 		}
 		return list;
 	}
+
+	@Override
+	public Customer createCustomer(CRForm form, String customerType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Account createAccount(CRForm form, ICustomer customer,
+			String accountType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

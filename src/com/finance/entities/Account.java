@@ -1,7 +1,12 @@
 package com.finance.entities;
 
-import com.finance.controllers.AccountManager;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.demoapp.entities.AccountManager;
 import com.finance.interfaces.ICustomer;
+import com.finance.reporting.Report;
+import com.sun.org.apache.bcel.internal.generic.BALOAD;
 
 public class Account{
 	
@@ -53,7 +58,7 @@ public class Account{
 		return null;
 	}
 	
-	public void notifyCustomer(String transactionDetails){
+	public void notifyCustomer(Transaction transaction){
 		
 	}
 	
@@ -64,5 +69,14 @@ public class Account{
 	public  String getType(){
 		return "default";
 	}
-
+	
+	public Report getReport(){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("Account Number", ""+getAccountNumber()+"");
+		map.put("Current Balance",""+getCurrentBalance()+"");
+		map.put("Account Type", getType());
+		Report myReport = new Report(map);
+		return myReport;
+		
+	}
 }
