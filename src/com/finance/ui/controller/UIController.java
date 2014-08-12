@@ -1,6 +1,7 @@
 package com.finance.ui.controller;
 
 import com.finance.controllers.FrameworkController;
+
 import java.util.List;
 
 import com.finance.entities.IDataSet;
@@ -8,6 +9,7 @@ import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;
 import com.finance.ui.view.RegistrationActionListener;
+import com.finance.ui.view.ReportActionListener;
 import com.finance.ui.view.TRForm;
 import com.finance.ui.view.TransactionActionListener;
 
@@ -36,8 +38,8 @@ public class UIController {
 		mainView.getTRPanel().addActionListener(
 				new TransactionActionListener(this));
 
-		// mainView.getReportButton()
-		// .addActionListener(new ReportActionListener());
+		mainView.getReportButton()
+				.addActionListener(new ReportActionListener());
 	}
 
 	public void updateTable(List<IDataSet> dataSetList) {

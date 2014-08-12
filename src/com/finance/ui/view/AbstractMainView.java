@@ -29,6 +29,7 @@ public abstract class AbstractMainView extends JFrame {
 		this.uiFactory = uiFactory;
 		crPanel = uiFactory.createCRPanel();
 		trPanel = uiFactory.createTRPanel();
+		reportButton=uiFactory.createReportButton();
 		setTitle(title);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new FlowLayout());
@@ -68,6 +69,7 @@ public abstract class AbstractMainView extends JFrame {
 		table.setFillsViewportHeight(true);
 		JScrollPane scrollPane = new JScrollPane(table);
 		this.getContentPane().add(scrollPane);
+		this.getContentPane().add(reportButton);
 	}
 
 	public AbstractDynamicPanel getCRPanel() {
