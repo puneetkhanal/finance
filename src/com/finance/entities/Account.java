@@ -2,7 +2,6 @@ package com.finance.entities;
 
 import com.finance.controllers.AccountManager;
 import com.finance.interfaces.ICustomer;
-import com.sun.org.apache.bcel.internal.generic.BALOAD;
 
 public class Account{
 	

@@ -2,6 +2,7 @@ package com.finance.ui.view;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -13,6 +14,8 @@ import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
+import com.finance.entities.IDataSet;
+
 public abstract class AbstractMainView extends JFrame {
 
 	private JButton reportButton;
@@ -21,8 +24,9 @@ public abstract class AbstractMainView extends JFrame {
 	private AbstractDynamicPanel trPanel;
 	protected Vector<String> columnNames;
 	protected JTable table;
-	public AbstractMainView(String title,IUIFactory uiFactory) {
-		this.uiFactory=uiFactory;
+
+	public AbstractMainView(String title, IUIFactory uiFactory) {
+		this.uiFactory = uiFactory;
 		crPanel = uiFactory.createCRPanel();
 		trPanel = uiFactory.createTRPanel();
 		setTitle(title);
@@ -30,16 +34,16 @@ public abstract class AbstractMainView extends JFrame {
 		getContentPane().setLayout(new FlowLayout());
 		setSize(575, 310);
 		setVisible(false);
-		JPanel operationsPanel=new JPanel();
+		JPanel operationsPanel = new JPanel();
 		operationsPanel.setSize(500, 10);
-		operationsPanel.setLayout(
-				new BoxLayout(operationsPanel, BoxLayout.X_AXIS));
+		operationsPanel.setLayout(new BoxLayout(operationsPanel,
+				BoxLayout.X_AXIS));
 		operationsPanel.add(crPanel);
 		operationsPanel.add(trPanel);
-//		operationsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		
+		// operationsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
 		this.getContentPane().add(operationsPanel);
-		
+
 		columnNames = new Vector<String>();
 		columnNames.addElement("Name");
 		columnNames.addElement("State");
@@ -82,8 +86,12 @@ public abstract class AbstractMainView extends JFrame {
 		return reportButton;
 	}
 
-	public void setTableModel(Vector<Vector> data){
-		DefaultTableModel model = new DefaultTableModel(data, columnNames);
+	public void setTableModel(List<IDataSet> datasetList) {
+		Vector<Vector<String>> vector = new Vector<>();
+		for (IDataSet data : datasetList) {
+			vector.add(data.toVector());
+		}
+		DefaultTableModel model = new DefaultTableModel(vector, columnNames);
 		table.setModel(model);
 	}
 }

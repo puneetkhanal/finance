@@ -3,7 +3,6 @@ package com.finance.ui.controller;
 import com.finance.controllers.FrameworkController;
 import java.util.List;
 
-import com.finance.controllers.FrameworkController;
 import com.finance.entities.IDataSet;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
@@ -42,12 +41,11 @@ public class UIController {
 	}
 
 	public void updateTable(List<IDataSet> dataSetList) {
-		mainView.setTableModel(null);
+		mainView.setTableModel(dataSetList);
 	}
 
 	public void transactionPerformed(TRForm trForm) {
 		System.out.println(trForm);
-
 	}
 
 	public void registerCustomer(CRForm crForm) {
