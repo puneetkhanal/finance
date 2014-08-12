@@ -1,5 +1,6 @@
 package com.finance.ui.controller;
 
+import com.finance.controllers.FrameworkController;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;
@@ -11,14 +12,20 @@ public class UIController {
 
 	private AbstractMainView mainView;
 	protected AbstractCRDialogFactory crDialogFactory;
+	private FrameworkController frameworkController;
 
 	public UIController(AbstractMainView mainView,
-			AbstractCRDialogFactory crDialogFactory) {
+			AbstractCRDialogFactory crDialogFactory,FrameworkController frameworkController) {
 		this.mainView = mainView;
 		this.crDialogFactory = crDialogFactory;
+		this.frameworkController = frameworkController;
+		frameworkController.setUIController(this);
 		crDialogFactory.setUIController(this);
 		init();
+		
 	}
+	
+	
 
 	private void init() {
 		mainView.getCRPanel().addActionListener(
