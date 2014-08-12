@@ -37,7 +37,6 @@ public class UIController {
 				new RegistrationActionListener(this, crDialogFactory));
 		mainView.getTRPanel().addActionListener(
 				new TransactionActionListener(this));
-
 		mainView.getReportButton()
 				.addActionListener(new ReportActionListener());
 	}
@@ -53,5 +52,9 @@ public class UIController {
 	public void registerCustomer(CRForm crForm) {
 		System.out.println(crForm);
 
+	}
+	
+	public int  getAccountNumber(){
+		return mainView.getAccountNumber();
 	}
 }

@@ -24,12 +24,13 @@ public abstract class AbstractMainView extends JFrame {
 	private AbstractDynamicPanel trPanel;
 	protected Vector<String> columnNames;
 	protected JTable table;
+	private List<IDataSet> dataList;
 
 	public AbstractMainView(String title, IUIFactory uiFactory) {
 		this.uiFactory = uiFactory;
 		crPanel = uiFactory.createCRPanel();
 		trPanel = uiFactory.createTRPanel();
-		reportButton=uiFactory.createReportButton();
+		reportButton = uiFactory.createReportButton();
 		setTitle(title);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new FlowLayout());
@@ -40,19 +41,21 @@ public abstract class AbstractMainView extends JFrame {
 		operationsPanel.setLayout(new BoxLayout(operationsPanel,
 				BoxLayout.X_AXIS));
 		operationsPanel.add(crPanel);
-		operationsPanel.add(trPanel);
+		operationsPanel.add(reportButton);
 		// operationsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 		this.getContentPane().add(operationsPanel);
 
 		columnNames = new Vector<String>();
 		columnNames.addElement("Name");
+		columnNames.addElement("1");
 		columnNames.addElement("State");
 		columnNames.addElement("City");
 		columnNames.addElement("Street");
 		columnNames.addElement("Zip");
 
 		Vector<String> rowOne = new Vector<String>();
+		rowOne.add("1");
 		rowOne.add("Puneet");
 		rowOne.add("Iowa");
 		rowOne.add("Fairfield");
@@ -68,8 +71,11 @@ public abstract class AbstractMainView extends JFrame {
 		table.setPreferredScrollableViewportSize(new Dimension(400, 100));
 		table.setFillsViewportHeight(true);
 		JScrollPane scrollPane = new JScrollPane(table);
-		this.getContentPane().add(scrollPane);
-		this.getContentPane().add(reportButton);
+
+		JPanel tablePanel = new JPanel();
+		tablePanel.add(scrollPane);
+		tablePanel.add(trPanel);
+		this.getContentPane().add(tablePanel);
 	}
 
 	public AbstractDynamicPanel getCRPanel() {
@@ -89,11 +95,23 @@ public abstract class AbstractMainView extends JFrame {
 	}
 
 	public void setTableModel(List<IDataSet> datasetList) {
+		this.dataList = datasetList;
 		Vector<Vector<String>> vector = new Vector<>();
 		for (IDataSet data : datasetList) {
 			vector.add(data.toVector());
 		}
 		DefaultTableModel model = new DefaultTableModel(vector, columnNames);
 		table.setModel(model);
+	}
+
+	public int getAccountNumber() {
+		if (dataList != null && table.getSelectedRow() >= 0) {
+			int accNumber = (int) dataList.get(table.getSelectedRow())
+					.getData();
+
+			return accNumber;
+		} else {
+			return 0;
+		}
 	}
 }
