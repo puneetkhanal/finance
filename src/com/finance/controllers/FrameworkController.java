@@ -15,7 +15,7 @@ import com.finance.interfaces.IDataSet;
 import com.finance.interfaces.ITransactionManager;
 import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
-import com.finance.ui.view.CRModel;
+import com.finance.view.defaultview.CRModel;
 
 public class FrameworkController {
 	private IAccountManager accountManger;

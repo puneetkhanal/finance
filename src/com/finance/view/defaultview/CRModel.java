@@ -1,4 +1,4 @@
-package com.finance.ui.view;
+package com.finance.view.defaultview;
 
 public class CRModel {
 

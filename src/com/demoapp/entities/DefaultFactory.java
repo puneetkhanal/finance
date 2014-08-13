@@ -13,7 +13,7 @@ import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.IReportComputer;
-import com.finance.ui.view.CRModel;
+import com.finance.view.defaultview.CRModel;
 
 public class DefaultFactory extends AbstractFactory{
 

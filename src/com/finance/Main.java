@@ -12,15 +12,15 @@ import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.ITransactionManager;
 import com.finance.ui.controller.UIController;
 import com.finance.ui.view.AbstractMainView;
-import com.finance.ui.view.DefaultCRDialogFactory;
-import com.finance.ui.view.DefaultMainView;
-import com.finance.ui.view.DefaultUIFactory;
 import com.finance.ui.view.bank.BankCRFactory;
 import com.finance.ui.view.bank.BankMainView;
 import com.finance.ui.view.bank.BankUIFactory;
 import com.finance.ui.view.ccard.CCardCRFormFactory;
 import com.finance.ui.view.ccard.CCardMainView;
 import com.finance.ui.view.ccard.CCardUIFactory;
+import com.finance.view.defaultview.DefaultCRDialogFactory;
+import com.finance.view.defaultview.DefaultMainView;
+import com.finance.view.defaultview.DefaultUIFactory;
 
 public class Main {
 	public static void main(String[] args){

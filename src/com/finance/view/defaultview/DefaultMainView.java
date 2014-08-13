@@ -1,8 +1,10 @@
-package com.finance.ui.view;
+package com.finance.view.defaultview;
 
 import javax.swing.*;
 
 import com.finance.ui.controller.UIController;
+import com.finance.ui.view.AbstractMainView;
+import com.finance.ui.view.IUIFactory;
 
 /**
  * A basic JFC based application.

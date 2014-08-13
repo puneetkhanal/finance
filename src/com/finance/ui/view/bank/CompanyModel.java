@@ -1,6 +1,6 @@
 package com.finance.ui.view.bank;
 
-import com.finance.ui.view.CRModel;
+import com.finance.view.defaultview.CRModel;
 
 public class CompanyModel extends CRModel {
 

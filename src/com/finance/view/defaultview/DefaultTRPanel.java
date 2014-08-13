@@ -1,6 +1,9 @@
-package com.finance.ui.view;
+package com.finance.view.defaultview;
 
 import javax.swing.BoxLayout;
+
+import com.finance.ui.view.AbstractDynamicPanel;
+import com.finance.ui.view.TypedJButton;
 
 public class DefaultTRPanel extends AbstractDynamicPanel {
 

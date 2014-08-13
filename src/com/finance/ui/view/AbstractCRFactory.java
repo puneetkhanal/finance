@@ -4,11 +4,11 @@ import javax.swing.JDialog;
 
 import com.finance.ui.controller.UIController;
 
-public abstract class AbstractCRDialogFactory {
+public abstract class AbstractCRFactory {
 
 	protected UIController uiController;
 
-	public AbstractCRDialogFactory() {
+	public AbstractCRFactory() {
 
 	}
 	

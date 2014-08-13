@@ -8,7 +8,7 @@ import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.ITransactionManager;
-import com.finance.ui.view.CRModel;
+import com.finance.view.defaultview.CRModel;
 
 public abstract class AbstractFactory implements IAbstractFactory {
 	private ICustomerManager customerManager;
