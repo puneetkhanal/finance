@@ -36,8 +36,8 @@ public class UIController {
 				new RegistrationActionListener(this, crDialogFactory));
 		mainView.getTRPanel().addActionListener(
 				new TransactionActionListener(this));
-		mainView.getReportButton()
-				.addActionListener(new ReportActionListener(this));
+		mainView.getReportButton().addActionListener(
+				new ReportActionListener(this));
 	}
 
 	public void updateTable(List<IDataSet> dataSetList) {
@@ -50,9 +50,8 @@ public class UIController {
 				trForm.getTransactionType());
 	}
 
-	public void registerCustomer(CRModel crForm) {
-		if(crForm instanceof PersonalModel)
-		frameworkController.createCustomer(crForm, "", "");
+	public void registerCustomer(CRModel crModel) {
+		frameworkController.createCustomer(crModel, "", "");
 	}
 
 	public int getAccountNumber() {
@@ -61,6 +60,6 @@ public class UIController {
 
 	public Report getReport() {
 		return frameworkController.getReport();
-		
+
 	}
 }

@@ -175,6 +175,7 @@ public class PersonalDialog extends javax.swing.JDialog {
 		else
 			crForm.setAccountType(AccountType.savings);
 
+		uiController.registerCustomer(crForm);
 		// parentframe.accountnr=JTextField_ACNR.getText();
 		// parentframe.clientName=JTextField_NAME.getText();
 		// parentframe.street=JTextField_STR.getText();
