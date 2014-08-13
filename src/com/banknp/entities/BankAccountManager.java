@@ -29,7 +29,11 @@ public class BankAccountManager extends AccountManager {
 		return null;
 	}
 
-	
+	@Override
+	public List<IAccount> getAllAccounts() {
+		// TODO Auto-generated method stub
+		return accounts;
+	}
 
 	
 	
