@@ -24,6 +24,11 @@ public class AccountManager extends AbstractAccountManager{
 		return null;
 	}
 
+	@Override
+	public List<IAccount> getAllAccounts() {
+		return accounts;
+	}
+
 	
 
 

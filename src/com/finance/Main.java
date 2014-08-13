@@ -1,5 +1,9 @@
 package com.finance;
 
+import com.banknp.entities.BankAccountManager;
+import com.banknp.entities.BankCustomerManager;
+import com.banknp.entities.BankFactory;
+import com.banknp.entities.BankTransactionManager;
 import com.demoapp.entities.AccountManager;
 import com.demoapp.entities.CustomerManager;
 import com.demoapp.entities.DefaultFactory;
@@ -34,11 +38,13 @@ public class Main {
 	}
 
 	public static void finance() {
+		//Default
 		ICustomerManager customerManager = new CustomerManager();
 		ITransactionManager transactionManager = new TransactionManager();
 		IAccountManager accountManager = new AccountManager();
 		IAbstractFactory myFactory = new DefaultFactory();
-
+		
+		
 		FrameworkController frameworkController = new FrameworkController(null);
 		frameworkController.injectServiceProviders(customerManager,
 				accountManager, transactionManager, myFactory);
@@ -70,10 +76,10 @@ public class Main {
 	}
 
 	public static void bank() {
-		ICustomerManager customerManager = new CustomerManager();
-		ITransactionManager transactionManager = new TransactionManager();
-		IAccountManager accountManager = new AccountManager();
-		IAbstractFactory myFactory = new DefaultFactory();
+		ICustomerManager customerManager = new BankCustomerManager();
+		ITransactionManager transactionManager = new BankTransactionManager();
+		IAccountManager accountManager = new BankAccountManager();
+		IAbstractFactory myFactory = new BankFactory();
 
 		FrameworkController frameworkController = new FrameworkController(null);
 		frameworkController.injectServiceProviders(customerManager,

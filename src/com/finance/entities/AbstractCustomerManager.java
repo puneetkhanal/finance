@@ -11,7 +11,7 @@ public abstract  class AbstractCustomerManager extends Observable implements ICu
 	@Override
 	public final void setFrameworkController(FrameworkController frameworkController) {
 		this.frameworkController = frameworkController;
-		//addObserver(frameworkController);
+		addObserver(frameworkController);
 		
 	}
 	

@@ -10,12 +10,14 @@ public abstract class AbstractAccountManager extends Observable implements IAcco
 	
 	public final void setFrameworkController(FrameworkController frameworkController){
 		this.frameworkController = frameworkController;
+		addObserver(frameworkController);
+		
 	}
 
 	@Override
-	public final void setChanged() {
-		frameworkController.dataSetChanged();
-		
+	public final void setAccountChanged() {
+		setChanged();
+		notifyObservers();
 	}
 
 }

@@ -42,6 +42,7 @@ public class FrameworkController implements Observer {
 		this.accountManger = accountManager;
 		this.transactionManager = transactionManager;
 		
+		
 		customerManager.setFrameworkController(this);
 		accountManager.setFrameworkController(this);
 		if(abstractFactory!=null){
@@ -79,7 +80,11 @@ public class FrameworkController implements Observer {
 	}
 	
 	public void addInterest(){
-		
+		List<IAccount> accounts = accountManger.getAllAccounts();
+		for(IAccount account: accounts){
+			double interest = account.computeInterest();
+			abstractFactory.createTransaction(account, interest, "addinterest");
+		}
 	}
 
 	@Override

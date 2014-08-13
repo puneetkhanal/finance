@@ -14,9 +14,11 @@ import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.IReportComputer;
+import com.finance.ui.view.bank.AccountType;
 import com.finance.ui.view.bank.CompanyModel;
 import com.finance.ui.view.bank.PersonalModel;
 import com.finance.view.defaultview.CRModel;
+import com.sun.org.apache.bcel.internal.generic.ACONST_NULL;
 
 public class BankFactory extends AbstractFactory{
 
@@ -63,12 +65,20 @@ public class BankFactory extends AbstractFactory{
 			String accountType) {
 		//process the form for any field required to create the account, 
 		//in this case the application itself generates the account number
-		if(accountType.equals(BankInformation.CHECKING))
+		AccountType type;
+		if(form instanceof PersonalModel){
+			PersonalModel model=(PersonalModel) form;
+			type=model.getAccountType();
+		}else{
+			CompanyModel model=(CompanyModel) form;
+			type=model.getAccountType();
+			
+		}
+		if(type.equals(AccountType.checkings)){
 		return new CheckingAccount(customer,1.16);
-		if(accountType.equals(BankInformation.SAVING))
+		}else{
 		return new SavingAccount(customer,1.16);
-		return null;
-		
+		}		
 	}
 
 	@Override

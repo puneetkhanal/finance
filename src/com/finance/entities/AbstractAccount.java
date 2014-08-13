@@ -55,6 +55,6 @@ public abstract class AbstractAccount implements IAccount{
 	}
 	@Override
 	public final  void setChanged(){
-		accountManager.setChanged();
+		accountManager.setAccountChanged();
 	}
 }
