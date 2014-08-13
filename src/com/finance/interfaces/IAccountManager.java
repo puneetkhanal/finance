@@ -9,5 +9,4 @@ public interface IAccountManager {
 	public IAccount findAccount(int account_no);
 	public void setChanged() ;
 	public void setFrameworkController(FrameworkController frameworkController);
-	
 }

@@ -35,8 +35,7 @@ public class SavingAccount extends AbstractAccount{
 
 	@Override
 	public double computeInterest() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getCurrentBalance()*getInterestRate();
 	}
 
 }

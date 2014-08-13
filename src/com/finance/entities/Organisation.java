@@ -7,9 +7,10 @@ import com.finance.interfaces.IAccount;
 import com.finance.reporting.Report;
 
 public class Organisation extends Customer{
-
-	public Organisation(Address address, String name, String email) {
+	private int numberOfEmployee;
+	public Organisation(Address address, String name, String email,int numEmployee) {
 		super(address, name, email);
+		this.numberOfEmployee = numEmployee;
 		// TODO Auto-generated constructor stub
 	}
 

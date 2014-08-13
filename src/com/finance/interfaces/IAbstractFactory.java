@@ -22,6 +22,6 @@ public interface IAbstractFactory {
 	
 	
 	public void setManagers(ICustomerManager customerManager,IAccountManager accountManager,ITransactionManager transactionManager);
-	
+	public void createInterestTransactions(List<IAccount> account);
 
 }

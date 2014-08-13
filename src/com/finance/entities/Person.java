@@ -10,9 +10,10 @@ import com.finance.reporting.Report;
 
 
 public class Person extends Customer   {
-	private Date dob;
-	public Person(Address address, String name, String email) {
+	private String dob;
+	public Person(Address address, String name, String email, String dob) {
 		super(address, name, email);
+		this.dob = dob;
 		
 	}
 

@@ -1,5 +1,7 @@
 package com.finance.entities;
 
+import java.util.List;
+
 import com.finance.interfaces.IAbstractFactory;
 import com.finance.interfaces.IAccount;
 import com.finance.interfaces.IAccountManager;
@@ -39,6 +41,16 @@ public abstract class AbstractFactory implements IAbstractFactory {
 		Transaction transaction = getTransaction(account, amount, type);
 		transactionManager.addTransactionTemplate(transaction);
 		return transaction;
+	}
+	
+	@Override
+	public void createInterestTransactions(List<IAccount> accountList) {
+		for(IAccount account: accountList){
+			double interest = account.computeInterest();
+			Transaction transaction = getTransaction(account, interest,"addinterest");
+			transactionManager.addTransactionTemplate(transaction);
+		}
+		
 	}
 
 }

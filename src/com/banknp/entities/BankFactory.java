@@ -6,6 +6,7 @@ import java.util.List;
 import com.finance.entities.AbstractFactory;
 import com.finance.entities.Address;
 import com.finance.entities.Customer;
+import com.finance.entities.Organisation;
 import com.finance.entities.Person;
 import com.finance.entities.Transaction;
 import com.finance.interfaces.IAccount;
@@ -14,6 +15,8 @@ import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.IReportComputer;
 import com.finance.ui.view.CRModel;
+import com.finance.ui.view.bank.CompanyModel;
+import com.finance.ui.view.bank.PersonalModel;
 
 public class BankFactory extends AbstractFactory{
 
@@ -43,7 +46,16 @@ public class BankFactory extends AbstractFactory{
 		String state = form.getState();
 		String zipCode= form.getZip();
 		Address address =new Address(street, city, zipCode, state);
-		return new Person(address, name, email);
+		if(form instanceof PersonalModel){
+			PersonalModel personalModel = (PersonalModel)form;
+			String dateOfBirth = personalModel.getBirthDate();
+			return new Person(address, name, email,dateOfBirth);
+		}
+		else{
+			CompanyModel companyModel = (CompanyModel) form;
+			int numEmployee = companyModel.getNumberOfEmployees();
+			return new Organisation(address, name, email, numEmployee);
+		}
 	}
 
 	@Override
@@ -60,6 +72,9 @@ public class BankFactory extends AbstractFactory{
 			String type) {
 		if(type.equals("deposit")){
 			return new BankDeposit(account, amount, "");
+		}
+		else if(type.equals("addinterest")){
+			return new AddInterest(account, amount, "");
 		}
 		else{
 			return new BankWithdrawal(account, amount, "");

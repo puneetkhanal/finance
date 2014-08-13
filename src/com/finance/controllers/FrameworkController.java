@@ -75,5 +75,9 @@ public class FrameworkController {
 	public Report getReport(){
 		return customerManager.getReport();
 	}
+	
+	public void addInterest(){
+		
+	}
 
 }
