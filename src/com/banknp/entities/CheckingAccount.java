@@ -32,4 +32,10 @@ public class CheckingAccount extends AbstractAccount {
 		myReport.put("Balance", ""+getCurrentBalance()+"");
 		return new Report(myReport);
 	}
+
+	@Override
+	public double computeInterest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

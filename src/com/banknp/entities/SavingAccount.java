@@ -33,4 +33,10 @@ public class SavingAccount extends AbstractAccount{
 		return new Report(myReport);
 	}
 
+	@Override
+	public double computeInterest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
