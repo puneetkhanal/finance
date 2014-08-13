@@ -1,5 +1,8 @@
 package com.creditnp.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.w3c.dom.views.AbstractView;
 
 import com.finance.entities.AbstractAccount;
@@ -21,13 +24,21 @@ public class GoldCreditAccount extends AbstractAccount{
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return "gold";
 	}
 
 	@Override
 	public Report getReport() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String,String> myReport = new HashMap<String, String>();
+		myReport.put("Account Number", ""+getAccountNumber()+"");
+		myReport.put("Account Type", ""+getType());
+		
+		Report report = new Report(myReport);
+		
+		ReportComputer reportComputer = new ReportComputer();
+		transactionManger.computeReport(this, reportComputer);
+		report.addChildReport(reportComputer.getReport());
+		return report;
 	}
 
 	@Override

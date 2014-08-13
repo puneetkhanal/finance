@@ -3,11 +3,11 @@ package com.banknp.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.creditnp.entities.ReportComputer;
 import com.finance.entities.AbstractTransactionManager;
 import com.finance.entities.Transaction;
 import com.finance.interfaces.IAccount;
 import com.finance.reporting.Report;
-import com.finance.reporting.ReportComputer;
 
 public class BankTransactionManager extends AbstractTransactionManager{
 	private List<Transaction> transactions = new ArrayList<Transaction>();

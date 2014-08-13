@@ -21,6 +21,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 		
 		ICustomer customer = createCustomer(form, customerType);
 		IAccount account = createAccount(form, customer, accountType);
+		account.setManagers(accountManager, transactionManager);
 		customer.addAccount(account);
 		customerManager.submitCustomer(customer);
 		accountManager.addAccount(account);
