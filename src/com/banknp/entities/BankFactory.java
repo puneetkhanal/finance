@@ -63,8 +63,12 @@ public class BankFactory extends AbstractFactory{
 			String accountType) {
 		//process the form for any field required to create the account, 
 		//in this case the application itself generates the account number
-		if(accountType.equals(BankInformation.CHECKING));
-		return new CheckingAccount(customer);
+		if(accountType.equals(BankInformation.CHECKING))
+		return new CheckingAccount(customer,1.16);
+		if(accountType.equals(BankInformation.SAVING))
+		return new SavingAccount(customer,1.16);
+		return null;
+		
 	}
 
 	@Override

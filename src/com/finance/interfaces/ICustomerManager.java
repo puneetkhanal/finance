@@ -10,7 +10,7 @@ public interface ICustomerManager {
 	public boolean submitCustomer(ICustomer customer);
 	public ICustomer findCustomer(String name);
 	public List<ICustomer> getAllCustomer();
-	public void setChanged() ;
+	//public void setChanged() ;
 	public void setFrameworkController(FrameworkController frameworkController);
 	public Report getReport();
 }

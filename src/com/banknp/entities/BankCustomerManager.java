@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.demoapp.entities.CustomerManager;
 import com.finance.entities.AbstractAccountManager;
 import com.finance.entities.AbstractCustomerManager;
 import com.finance.interfaces.IAccount;
@@ -13,7 +14,7 @@ import com.finance.interfaces.ICustomerManager;
 import com.finance.reporting.Report;
 
 
-public class BankCustomerManager extends AbstractCustomerManager {
+public class BankCustomerManager extends CustomerManager {
 	private List<ICustomer> customers = new ArrayList<ICustomer>();
 	
 	public boolean addCustomer(ICustomer customer){

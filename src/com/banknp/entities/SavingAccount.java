@@ -3,13 +3,16 @@ package com.banknp.entities;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.demoapp.entities.Account;
 import com.finance.entities.AbstractAccount;
 import com.finance.interfaces.ICustomer;
 import com.finance.reporting.Report;
 
-public class SavingAccount extends AbstractAccount{
+public class SavingAccount extends Account{
+	double interestRate;
 	public SavingAccount(ICustomer customer,double irRate) {
 		super(customer);
+		this.interestRate = irRate;
 	}
 	
 	@Override
@@ -21,7 +24,7 @@ public class SavingAccount extends AbstractAccount{
 	@Override
 	public double getInterestRate() {
 		// TODO Auto-generated method stub
-		return 1.16;
+		return interestRate;
 	}
 
 	@Override

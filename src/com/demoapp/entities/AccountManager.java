@@ -7,7 +7,7 @@ import com.finance.entities.AbstractAccountManager;
 import com.finance.interfaces.IAccount;
 import com.finance.reporting.Report;
 
-public class AccountManager extends AbstractAccountManager {
+public class AccountManager extends AbstractAccountManager{
 
 	private List<IAccount> accounts = new ArrayList<IAccount>();
 

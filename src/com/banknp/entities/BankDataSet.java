@@ -21,9 +21,16 @@ public class BankDataSet implements IDataSet<Integer>{
 	@Override
 	public Vector<String> toVector() {
 		 Vector<String> newRow = new Vector<String>();
-	        newRow.add(customer.getName());
+	        newRow.add(customer.getAddress().street);
+	        newRow.add(customer.getAddress().city);
+	        newRow.add(customer.getAddress().state);
+	        newRow.add(customer.getAddress().zipCode);
+	        String type = customer.getType();
+	        newRow.add(""+type.charAt(0)+"");
+	        type = account.getType();
+	        newRow.add(""+type.charAt(0)+"");
 	        //newRow.add(customer.getType());
-	        newRow.add(""+account.getAccountNumber()+"");
+	        //newRow.add(""+account.getAccountNumber()+"");
 	        //newRow.add(account.getType());
 	        newRow.add(""+account.getCurrentBalance()+"");
 	        return newRow;

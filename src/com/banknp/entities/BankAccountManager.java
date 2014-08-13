@@ -5,11 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.demoapp.entities.AccountManager;
 import com.finance.entities.AbstractAccountManager;
 import com.finance.interfaces.IAccount;
 import com.finance.reporting.Report;
 
-public class BankAccountManager extends AbstractAccountManager {
+public class BankAccountManager extends AccountManager {
 	
 	private List<IAccount> accounts = new ArrayList<IAccount>();
 	

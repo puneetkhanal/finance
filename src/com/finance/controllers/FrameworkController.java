@@ -1,6 +1,8 @@
 package com.finance.controllers;
 
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import com.demoapp.entities.AccountManager;
 import com.demoapp.entities.CustomerManager;
@@ -17,7 +19,7 @@ import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
 import com.finance.view.defaultview.CRModel;
 
-public class FrameworkController {
+public class FrameworkController implements Observer {
 	private IAccountManager accountManger;
 	private ICustomerManager customerManager;
 	private ITransactionManager transactionManager;
@@ -68,8 +70,8 @@ public class FrameworkController {
 	}
 	
 	public void dataSetChanged(){
-		List<IDataSet> dataSetList = abstractFactory.getDataSet(customerManager);
-		viewController.updateTable(dataSetList);
+		//List<IDataSet> dataSetList = abstractFactory.getDataSet(customerManager);
+		//viewController.updateTable(dataSetList);
 	}
 	
 	public Report getReport(){
@@ -78,6 +80,14 @@ public class FrameworkController {
 	
 	public void addInterest(){
 		
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		List<IDataSet> dataSetList = abstractFactory.getDataSet(customerManager);
+		viewController.updateTable(dataSetList);
+
 	}
 
 }
