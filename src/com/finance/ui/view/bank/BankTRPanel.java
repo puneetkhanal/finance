@@ -6,6 +6,6 @@ import com.finance.view.defaultview.DefaultTRPanel;
 public class BankTRPanel extends DefaultTRPanel {
 
 	public BankTRPanel() {
-		this.add(new TypedJButton("Add interest","addinterest"));
+		this.addButton(new TypedJButton("Add interest","addinterest"));
 	}
 }

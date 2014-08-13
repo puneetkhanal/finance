@@ -62,4 +62,8 @@ public class UIController {
 		return frameworkController.getReport();
 
 	}
+
+	public void addInterest() {
+		frameworkController.addInterest();
+	}
 }

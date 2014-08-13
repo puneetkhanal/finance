@@ -16,10 +16,15 @@ public class TransactionActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		TypedJButton button=(TypedJButton) e.getSource();
-		TRDialog trDialog = new TRDialog(uiController,button.getType(),uiController.getAccountNumber());
-		trDialog.setBounds(430, 15, 275, 140);
-		trDialog.show();
+		TypedJButton button = (TypedJButton) e.getSource();
+		if (button.getType().equals("addinterest")) {
+			uiController.addInterest();
+		} else {
+			TRDialog trDialog = new TRDialog(uiController, button.getType(),
+					uiController.getAccountNumber());
+			trDialog.setBounds(430, 15, 275, 140);
+			trDialog.show();
+		}
 	}
 
 }
