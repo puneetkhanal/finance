@@ -6,7 +6,7 @@ import com.finance.interfaces.IAccount;
 
 public abstract class Transaction {
 	private Date date;
-	protected Double amount;
+	protected double amount;
 	private String name;
 	protected IAccount account;
 	
@@ -35,5 +35,7 @@ public abstract class Transaction {
 	
 	public abstract String getType();
 		
-	
+	public Date getDate(){
+		return date;
+	}
 }

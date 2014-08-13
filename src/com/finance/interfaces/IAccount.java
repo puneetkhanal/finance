@@ -8,7 +8,7 @@ import com.finance.entities.Transaction;
 import com.finance.reporting.Report;
 
 public interface IAccount {
-	public void setAccountManager(IAccountManager accountManger);
+	public void setManagers(IAccountManager accountManger,ITransactionManager transactionManager);
 	
 	public void addBalance(double amount);
 	public int getAccountNumber(); 

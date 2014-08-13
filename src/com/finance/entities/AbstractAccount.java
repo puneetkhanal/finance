@@ -3,6 +3,7 @@ package com.finance.entities;
 import com.finance.interfaces.IAccount;
 import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomer;
+import com.finance.interfaces.ITransactionManager;
 
 
 public abstract class AbstractAccount implements IAccount{
@@ -11,8 +12,9 @@ public abstract class AbstractAccount implements IAccount{
 	private double interestRate;
 	private int accountNumber;
 	private double currentBalance;
-	private ICustomer customer;
-	private IAccountManager accountManager;
+	protected ICustomer customer;
+	protected IAccountManager accountManager;
+	protected ITransactionManager transactionManger;
 	
 	public AbstractAccount(int acc_no, ICustomer customer) {
 		super();
@@ -26,9 +28,10 @@ public abstract class AbstractAccount implements IAccount{
 		accountNumberGenerator++;
 		interestRate = getInterestRate();
 	}
-	@Override
-	public final void setAccountManager(IAccountManager accountManger){
+	
+	public final void setManagers(IAccountManager accountManger,ITransactionManager transactionManager){
 		this.accountManager = accountManger;
+		this.transactionManger = transactionManager;
 	}
 	@Override
 	public final void addBalance(double amount){

@@ -13,7 +13,6 @@ public class AccountManager extends AbstractAccountManager {
 
 	public void addAccount(IAccount account) {
 		accounts.add(account);
-		account.setAccountManager(this);
 	}
 
 	public IAccount findAccount(int account_no) {

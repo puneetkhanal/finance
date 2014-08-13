@@ -1,9 +1,8 @@
 package com.finance.interfaces;
 
-import com.finance.entities.AbstractAccount;
+import com.creditnp.entities.ReportComputer;
 import com.finance.entities.Transaction;
 import com.finance.reporting.Report;
-import com.finance.reporting.ReportComputer;
 
 public interface ITransactionManager {
 
