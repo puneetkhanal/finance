@@ -8,10 +8,10 @@ import com.finance.ui.controller.UIController;
 public class RegistrationActionListener implements ActionListener {
 
 	private UIController uiController;
-	private AbstractCRDialogFactory dialogFactory;
+	private AbstractCRFactory dialogFactory;
 
 	public RegistrationActionListener(UIController uiController,
-			AbstractCRDialogFactory dialogFactory) {
+			AbstractCRFactory dialogFactory) {
 		this.uiController = uiController;
 		this.dialogFactory=dialogFactory;
 	}

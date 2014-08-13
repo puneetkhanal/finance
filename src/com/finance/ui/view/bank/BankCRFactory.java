@@ -2,9 +2,9 @@ package com.finance.ui.view.bank;
 
 import javax.swing.JDialog;
 
-import com.finance.ui.view.AbstractCRDialogFactory;
+import com.finance.ui.view.AbstractCRFactory;
 
-public class BankCRFactory extends AbstractCRDialogFactory {
+public class BankCRFactory extends AbstractCRFactory {
 
 	public BankCRFactory() {
 	}

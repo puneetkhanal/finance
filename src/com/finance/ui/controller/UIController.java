@@ -8,20 +8,21 @@ import com.finance.interfaces.IDataSet;
 import com.finance.reporting.Report;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRModel;
-import com.finance.ui.view.AbstractCRDialogFactory;
+import com.finance.ui.view.AbstractCRFactory;
 import com.finance.ui.view.RegistrationActionListener;
 import com.finance.ui.view.ReportActionListener;
 import com.finance.ui.view.TRModel;
 import com.finance.ui.view.TransactionActionListener;
+import com.finance.ui.view.bank.PersonalModel;
 
 public class UIController {
 
 	private AbstractMainView mainView;
-	protected AbstractCRDialogFactory crDialogFactory;
+	protected AbstractCRFactory crDialogFactory;
 	private FrameworkController frameworkController;
 
 	public UIController(AbstractMainView mainView,
-			AbstractCRDialogFactory crDialogFactory) {
+			AbstractCRFactory crDialogFactory) {
 		this.mainView = mainView;
 		this.crDialogFactory = crDialogFactory;
 		crDialogFactory.setUIController(this);
@@ -53,8 +54,8 @@ public class UIController {
 	}
 
 	public void registerCustomer(CRModel crForm) {
+		if(crForm instanceof PersonalModel)
 		frameworkController.createCustomer(crForm, "", "");
-
 	}
 
 	public int getAccountNumber() {
