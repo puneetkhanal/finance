@@ -21,5 +21,6 @@ public interface IAccount {
 	public  String getType();
 	public Report getReport();
 	
+	public double computeInterest();
 	
 }
