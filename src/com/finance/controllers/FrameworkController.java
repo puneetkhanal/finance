@@ -73,7 +73,7 @@ public class FrameworkController {
 	}
 	
 	public Report getReport(){
-		return null;
+		return customerManager.getReport();
 	}
 
 }

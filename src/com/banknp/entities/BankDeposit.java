@@ -14,5 +14,11 @@ public class BankDeposit extends Transaction {
 		// TODO Auto-generated method stub
 		return "Deposit";
 	}
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		super.execute();
+		account.setChanged();
+	}
 
 }

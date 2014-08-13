@@ -1,12 +1,16 @@
 package com.banknp.entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.finance.entities.AbstractAccountManager;
 import com.finance.entities.AbstractCustomerManager;
+import com.finance.interfaces.IAccount;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
+import com.finance.reporting.Report;
 
 
 public class BankCustomerManager extends AbstractCustomerManager {
@@ -22,6 +26,17 @@ public class BankCustomerManager extends AbstractCustomerManager {
 	public List<ICustomer> getAllCustomer(){
 		return customers;
 		
+	}
+	@Override
+	public Report getReport() {
+		Map<String, String> map = new HashMap<String, String>();
+		List<ICustomer> customers= getAllCustomer();
+		map.put("Total Customers", ""+customers.size()+"");
+		Report myReport = new Report(map);
+		for(ICustomer c: customers){
+			myReport.addChildReport(c.getReport());
+		}
+		return myReport;
 	}
 	
 

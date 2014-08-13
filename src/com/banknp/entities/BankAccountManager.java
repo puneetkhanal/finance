@@ -1,10 +1,13 @@
 package com.banknp.entities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.finance.entities.AbstractAccountManager;
 import com.finance.interfaces.IAccount;
+import com.finance.reporting.Report;
 
 public class BankAccountManager extends AbstractAccountManager {
 	
@@ -25,6 +28,8 @@ public class BankAccountManager extends AbstractAccountManager {
 		}
 		return null;
 	}
+
+	
 
 	
 	

@@ -13,5 +13,11 @@ public class BankWithdrawal extends Transaction{
 	public String getType() {
 		return "WithDrawal";
 	}
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		super.execute();
+		account.setChanged();
+	}
 
 }

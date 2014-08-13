@@ -1,5 +1,8 @@
 package com.banknp.entities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.finance.entities.AbstractAccount;
 import com.finance.interfaces.ICustomer;
 import com.finance.reporting.Report;
@@ -23,8 +26,11 @@ public class SavingAccount extends AbstractAccount{
 
 	@Override
 	public Report getReport() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String,String> myReport = new HashMap<String, String>();
+		myReport.put("Account Number", ""+getAccountNumber()+"");
+		myReport.put("Accuont Type", getType());
+		myReport.put("Balance", ""+getCurrentBalance()+"");
+		return new Report(myReport);
 	}
 
 }

@@ -32,15 +32,13 @@ public class Person extends Customer   {
 	public Report getReport() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("Name", getName());
-		map.put("customer type", getType());
+		map.put("Customer Type", getType());
 		Report myReport = new Report(map);
 		for(IAccount a: getAllAccount()){
 			myReport.addChildReport(a.getReport());
 		}
 		return myReport;
 	}
-
 	
-
 
 }

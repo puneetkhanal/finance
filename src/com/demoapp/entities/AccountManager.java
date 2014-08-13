@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.finance.entities.AbstractAccountManager;
 import com.finance.interfaces.IAccount;
+import com.finance.reporting.Report;
 
 public class AccountManager extends AbstractAccountManager {
 
@@ -23,6 +24,8 @@ public class AccountManager extends AbstractAccountManager {
 		}
 		return null;
 	}
+
+	
 
 
 }

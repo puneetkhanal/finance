@@ -2,6 +2,7 @@ package com.finance.reporting;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -31,8 +32,18 @@ public class Report {
 		this.myReport = myReport;
 	}
 	
-	public String toString(){
-		return null;
+	public String getString(String padding){
+		String result ="";
+		Iterator<String> iterator = myReport.keySet().iterator();
+		while(iterator.hasNext()){
+			String key = iterator.next();
+			String value = myReport.get(key);
+			result += padding+key+":"+value+"\n";
+		}
+		for(Report r: childReports){
+			result +=r.getString(padding+"  ");
+		}
+		return result;
 	}
 	
 	
