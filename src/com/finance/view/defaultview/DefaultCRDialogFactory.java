@@ -1,6 +1,8 @@
-package com.finance.ui.view;
+package com.finance.view.defaultview;
 
 import javax.swing.JDialog;
+
+import com.finance.ui.view.AbstractCRFactory;
 
 public class DefaultCRDialogFactory extends AbstractCRFactory {
 

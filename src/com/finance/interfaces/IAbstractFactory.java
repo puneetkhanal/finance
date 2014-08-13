@@ -5,7 +5,7 @@ import java.util.List;
 import com.finance.entities.Customer;
 import com.finance.entities.Transaction;
 import com.finance.reporting.IReportComputer;
-import com.finance.ui.view.CRModel;
+import com.finance.view.defaultview.CRModel;
 
 public interface IAbstractFactory {
 	public IReportComputer getReportComputer();

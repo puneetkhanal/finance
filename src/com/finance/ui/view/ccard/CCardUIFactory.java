@@ -3,8 +3,8 @@ package com.finance.ui.view.ccard;
 import javax.swing.JButton;
 
 import com.finance.ui.view.AbstractDynamicPanel;
-import com.finance.ui.view.DefaultTRPanel;
 import com.finance.ui.view.IUIFactory;
+import com.finance.view.defaultview.DefaultTRPanel;
 
 public class CCardUIFactory implements IUIFactory {
 

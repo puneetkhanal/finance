@@ -1,9 +1,9 @@
-package com.finance.ui.view;
+package com.finance.ui.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.finance.ui.controller.UIController;
+import com.finance.view.defaultview.ReportView;
 
 public class ReportActionListener implements ActionListener {
 

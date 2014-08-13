@@ -1,6 +1,9 @@
-package com.finance.ui.view;
+package com.finance.view.defaultview;
 
 import javax.swing.JButton;
+
+import com.finance.ui.view.AbstractDynamicPanel;
+import com.finance.ui.view.IUIFactory;
 
 public class DefaultUIFactory implements IUIFactory {
 

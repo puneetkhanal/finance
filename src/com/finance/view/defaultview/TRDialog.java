@@ -1,4 +1,4 @@
-package com.finance.ui.view;
+package com.finance.view.defaultview;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;

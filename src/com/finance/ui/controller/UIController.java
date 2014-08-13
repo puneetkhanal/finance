@@ -7,13 +7,10 @@ import java.util.List;
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.Report;
 import com.finance.ui.view.AbstractMainView;
-import com.finance.ui.view.CRModel;
 import com.finance.ui.view.AbstractCRFactory;
-import com.finance.ui.view.RegistrationActionListener;
-import com.finance.ui.view.ReportActionListener;
-import com.finance.ui.view.TRModel;
-import com.finance.ui.view.TransactionActionListener;
 import com.finance.ui.view.bank.PersonalModel;
+import com.finance.view.defaultview.CRModel;
+import com.finance.view.defaultview.TRModel;
 
 public class UIController {
 
