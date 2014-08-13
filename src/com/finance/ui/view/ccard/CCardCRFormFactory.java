@@ -11,7 +11,7 @@ public class CCardCRFormFactory extends AbstractCRDialogFactory {
 
 	@Override
 	public JDialog createCRDialog(String type) {
-		return new CCardCRFormDialog(uiController);
+		return new CCardCRDialog(uiController);
 	}
 
 }

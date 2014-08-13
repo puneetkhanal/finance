@@ -5,7 +5,7 @@ import java.util.List;
 import com.finance.entities.Customer;
 import com.finance.entities.Transaction;
 import com.finance.reporting.IReportComputer;
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
 public interface IAbstractFactory {
 	public IReportComputer getReportComputer();
@@ -13,10 +13,10 @@ public interface IAbstractFactory {
 	public Transaction getTransaction(IAccount account,double amount,String type);
 	public Transaction createTransaction(IAccount account,double amount,String type);
 	
-	public Customer createCustomer(CRForm form, String customerType);
-	public void createCustomerTemplate(CRForm form, String customerType,String accountType);
+	public Customer createCustomer(CRModel form, String customerType);
+	public void createCustomerTemplate(CRModel form, String customerType,String accountType);
 	
-	public IAccount createAccount(CRForm form, ICustomer customer,String accountType);
+	public IAccount createAccount(CRModel form, ICustomer customer,String accountType);
 	
 	public List<IDataSet> getDataSet(ICustomerManager customerManager);
 	

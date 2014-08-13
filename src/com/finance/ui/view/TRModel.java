@@ -1,6 +1,6 @@
 package com.finance.ui.view;
 
-public class TRForm {
+public class TRModel {
 
 	private String transactionType;
 

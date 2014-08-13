@@ -1,8 +1,8 @@
 package com.finance.ui.view.bank;
 
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
-public class PersonalForm extends CRForm {
+public class PersonalModel extends CRModel {
 
 	private String birthDate;
 	private AccountType accountType;

@@ -13,7 +13,7 @@ import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.IReportComputer;
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
 public class DefaultFactory extends AbstractFactory{
 
@@ -35,7 +35,7 @@ public class DefaultFactory extends AbstractFactory{
 	}
 
 	@Override
-	public Customer createCustomer(CRForm form, String customerType) {
+	public Customer createCustomer(CRModel form, String customerType) {
 		String name = form.getName();
 		String email = form.getEmail();
 		String street = form.getStreet();
@@ -47,7 +47,7 @@ public class DefaultFactory extends AbstractFactory{
 	}
 
 	@Override
-	public IAccount createAccount(CRForm form, ICustomer customer,
+	public IAccount createAccount(CRModel form, ICustomer customer,
 			String accountType) {
 		//process the form for any field required to create the account, 
 		//in this case the application itself generates the account number

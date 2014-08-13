@@ -7,11 +7,11 @@ import java.util.List;
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.Report;
 import com.finance.ui.view.AbstractMainView;
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 import com.finance.ui.view.AbstractCRDialogFactory;
 import com.finance.ui.view.RegistrationActionListener;
 import com.finance.ui.view.ReportActionListener;
-import com.finance.ui.view.TRForm;
+import com.finance.ui.view.TRModel;
 import com.finance.ui.view.TransactionActionListener;
 
 public class UIController {
@@ -46,13 +46,13 @@ public class UIController {
 		mainView.setTableModel(dataSetList);
 	}
 
-	public void transactionPerformed(TRForm trForm) {
+	public void transactionPerformed(TRModel trForm) {
 		frameworkController.executeTransaction(
 				Integer.parseInt(trForm.getName()), trForm.getAmount(),
 				trForm.getTransactionType());
 	}
 
-	public void registerCustomer(CRForm crForm) {
+	public void registerCustomer(CRModel crForm) {
 		frameworkController.createCustomer(crForm, "", "");
 
 	}

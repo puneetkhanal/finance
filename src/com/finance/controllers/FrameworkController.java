@@ -15,7 +15,7 @@ import com.finance.interfaces.IDataSet;
 import com.finance.interfaces.ITransactionManager;
 import com.finance.reporting.Report;
 import com.finance.ui.controller.UIController;
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
 public class FrameworkController {
 	private IAccountManager accountManger;
@@ -62,7 +62,7 @@ public class FrameworkController {
 		return false;
 	}
 	
-	public boolean createCustomer(CRForm form, String customerType, String accountType ){
+	public boolean createCustomer(CRModel form, String customerType, String accountType ){
 		abstractFactory.createCustomerTemplate(form, customerType, accountType);		
 		return true;
 	}

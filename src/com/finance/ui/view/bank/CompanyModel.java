@@ -1,8 +1,8 @@
 package com.finance.ui.view.bank;
 
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
-public class CompanyForm extends CRForm {
+public class CompanyModel extends CRModel {
 
 	private int numberOfEmployees;
 	private AccountType accountType;

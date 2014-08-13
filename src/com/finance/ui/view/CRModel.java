@@ -1,6 +1,6 @@
 package com.finance.ui.view;
 
-public class CRForm {
+public class CRModel {
 
 	public void setName(String name) {
 		this.name = name;

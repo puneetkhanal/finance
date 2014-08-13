@@ -114,7 +114,7 @@ public class CRDialog extends JDialog {
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		// parentframe.accountnr=JTextField_ACNR.getText();
-		CRForm crForm = new CRForm();
+		CRModel crForm = new CRModel();
 		crForm.setName(JTextField_NAME.getText());
 		crForm.setCity(JTextField_CT.getText());
 		crForm.setStreet(JTextField_ST.getText());

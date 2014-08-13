@@ -1,8 +1,8 @@
 package com.finance.ui.view.ccard;
 
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
-public class CCardCRForm extends CRForm {
+public class CCardCRModel extends CRModel {
 
 	private String ccNumber;
 	private String expDate;

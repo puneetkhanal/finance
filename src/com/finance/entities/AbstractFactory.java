@@ -6,7 +6,7 @@ import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomer;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.ITransactionManager;
-import com.finance.ui.view.CRForm;
+import com.finance.ui.view.CRModel;
 
 public abstract class AbstractFactory implements IAbstractFactory {
 	private ICustomerManager customerManager;
@@ -14,7 +14,7 @@ public abstract class AbstractFactory implements IAbstractFactory {
 	private ITransactionManager transactionManager;
 	
 	@Override
-	 public final void createCustomerTemplate(CRForm form, String customerType,
+	 public final void createCustomerTemplate(CRModel form, String customerType,
 			String accountType) {
 		
 		ICustomer customer = createCustomer(form, customerType);

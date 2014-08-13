@@ -81,7 +81,7 @@ public class TRDialog extends JDialog {
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		// parentframe.amountDeposit=JTextField_AMT.getText();
 		try {
-			TRForm trForm = new TRForm();
+			TRModel trForm = new TRModel();
 			trForm.setAmount(Double.parseDouble(JTextField_AMT.getText()));
 			trForm.setTransactionType(transactionType);
 			trForm.setName(JTextField_NAME.getText());
