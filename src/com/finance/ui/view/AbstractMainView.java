@@ -51,7 +51,8 @@ public abstract class AbstractMainView extends JFrame {
 		columnNames.addElement("Account Number");
 		columnNames.addElement("Balance");
 		table = new JTable(new Vector<String>(), columnNames);
-		DefaultTableModel model = new DefaultTableModel(new Vector<String>(), columnNames);
+		DefaultTableModel model = new DefaultTableModel(new Vector<String>(),
+				columnNames);
 
 		table.setModel(model);
 		table.setPreferredScrollableViewportSize(new Dimension(400, 100));
@@ -82,7 +83,7 @@ public abstract class AbstractMainView extends JFrame {
 
 	public void setTableModel(List<IDataSet> datasetList) {
 		this.dataList = datasetList;
-		Vector<Vector<String>> vector = new Vector<>();
+		Vector<Vector<String>> vector = new Vector<Vector<String>>();
 		for (IDataSet data : datasetList) {
 			vector.add(data.toVector());
 		}
@@ -92,7 +93,7 @@ public abstract class AbstractMainView extends JFrame {
 
 	public int getAccountNumber() {
 		if (dataList != null && table.getSelectedRow() >= 0) {
-			int accNumber = (int) dataList.get(table.getSelectedRow())
+			int accNumber = (Integer) dataList.get(table.getSelectedRow())
 					.getData();
 
 			return accNumber;

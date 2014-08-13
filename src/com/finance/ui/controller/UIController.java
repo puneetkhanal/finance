@@ -5,6 +5,7 @@ import com.finance.controllers.FrameworkController;
 import java.util.List;
 
 import com.finance.interfaces.IDataSet;
+import com.finance.reporting.Report;
 import com.finance.ui.view.AbstractMainView;
 import com.finance.ui.view.CRForm;
 import com.finance.ui.view.AbstractCRDialogFactory;
@@ -38,7 +39,7 @@ public class UIController {
 		mainView.getTRPanel().addActionListener(
 				new TransactionActionListener(this));
 		mainView.getReportButton()
-				.addActionListener(new ReportActionListener());
+				.addActionListener(new ReportActionListener(this));
 	}
 
 	public void updateTable(List<IDataSet> dataSetList) {
@@ -58,5 +59,10 @@ public class UIController {
 
 	public int getAccountNumber() {
 		return mainView.getAccountNumber();
+	}
+
+	public Report getReport() {
+		return frameworkController.getReport();
+		
 	}
 }
