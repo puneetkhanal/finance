@@ -21,11 +21,6 @@ public class SavingAccount extends Account{
 		return BankInformation.SAVING;
 	}
 
-	@Override
-	public double getInterestRate() {
-		// TODO Auto-generated method stub
-		return interestRate;
-	}
 
 	@Override
 	public Report getReport() {
@@ -38,7 +33,7 @@ public class SavingAccount extends Account{
 
 	@Override
 	public double computeInterest() {
-		return getCurrentBalance()*getInterestRate();
+		return getCurrentBalance()*interestRate;
 	}
 
 }

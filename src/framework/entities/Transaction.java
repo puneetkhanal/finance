@@ -2,10 +2,11 @@ package framework.entities;
 
 import java.util.Date;
 
+import finance.Utils;
 import framework.interfaces.IAccount;
 
 public abstract class Transaction {
-	private Date date;
+	private String date;
 	protected double amount;
 	private String name;
 	protected IAccount account;
@@ -13,7 +14,7 @@ public abstract class Transaction {
 	public Transaction(IAccount account,Double amount, String name) {
 		super();
 		this.account =account;
-		this.date = new Date();
+		this.date = Utils.getDate();
 		this.amount = amount;
 		this.name = name;
 		
@@ -35,7 +36,11 @@ public abstract class Transaction {
 	
 	public abstract String getType();
 		
-	public Date getDate(){
+	public String getDate(){
 		return date;
+	}
+	
+	public IAccount getAccount(){
+		return account;
 	}
 }

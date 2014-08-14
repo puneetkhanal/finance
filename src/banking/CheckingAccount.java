@@ -9,7 +9,9 @@ import framework.interfaces.ICustomer;
 import framework.reporting.Report;
 
 public class CheckingAccount extends Account {
+	
 	double interestRate;
+	
 	public CheckingAccount(ICustomer customer,double irRate) {
 		super(customer);
 		this.interestRate = irRate;
@@ -17,14 +19,7 @@ public class CheckingAccount extends Account {
 	
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
 		return BankInformation.CHECKING;
-	}
-
-	@Override
-	public double getInterestRate() {
-		// TODO Auto-generated method stub
-		return interestRate;
 	}
 
 	@Override
@@ -38,6 +33,6 @@ public class CheckingAccount extends Account {
 
 	@Override
 	public double computeInterest() {
-		return getCurrentBalance()*getInterestRate();
+		return getCurrentBalance()*interestRate;
 	}
 }

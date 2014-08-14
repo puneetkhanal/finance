@@ -15,12 +15,11 @@ public interface IAccount {
 	public int getAccountNumber(); 
 	public double getCurrentBalance();
 	public ICustomer getCustomer();
-	
-	public double getInterestRate();
 	public void notifyCustomer(Transaction transaction);
 	public void setChanged();
 	public  String getType();
 	public Report getReport();
+	public String getExpiryDate();
 	
 	public double computeInterest();
 	

@@ -9,6 +9,7 @@ import framework.interfaces.IAccountManager;
 public abstract class AbstractAccountManager extends Observable implements IAccountManager{
 	private FrameworkController frameworkController;
 	
+	
 	@Override
 	public final void setFrameworkController(FrameworkController frameworkController){
 		this.frameworkController = frameworkController;
