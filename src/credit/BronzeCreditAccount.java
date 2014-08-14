@@ -1,0 +1,50 @@
+package credit;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+import framework.entities.AbstractAccount;
+import framework.interfaces.ICustomer;
+import framework.reporting.Report;
+
+public class BronzeCreditAccount extends AbstractAccount{
+
+	public BronzeCreditAccount(int acc_no, ICustomer customer) {
+		super(acc_no, customer);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public double getInterestRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "bronze";
+	}
+
+	@Override
+	public Report getReport() {
+		Map<String,String> myReport = new HashMap<String, String>();
+		myReport.put("Account Number", ""+getAccountNumber()+"");
+		myReport.put("Account Type", ""+getType());
+		
+		Report report = new Report(myReport);
+		
+		ReportComputer reportComputer = new ReportComputer();
+		transactionManger.computeReport(this, reportComputer);
+		report.addChildReport(reportComputer.getReport());
+		return report;
+	}
+
+	@Override
+	public double computeInterest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
