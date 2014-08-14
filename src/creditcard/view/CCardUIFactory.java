@@ -4,7 +4,6 @@ import javax.swing.JButton;
 
 import banking.view.BankTRPanel;
 
-import finance.view.DefaultTRPanel;
 import framework.view.AbstractDynamicPanel;
 import framework.view.IUIFactory;
 

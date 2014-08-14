@@ -35,10 +35,10 @@ public class Main {
 	public static void main(String[] args) {
 		// Logic Injection
 		System.out.println("Hello Framework");
-
+//
 //		finance();
-		 bank();
-//		 credit();
+//		 bank();
+		 credit();
 
 	}
 

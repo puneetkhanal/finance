@@ -5,11 +5,7 @@ import java.util.List;
 
 import creditcard.view.CCAccountType;
 import creditcard.view.CCardCRModel;
-import banking.CheckingAccount;
-import banking.SavingAccount;
 import banking.view.AccountType;
-import banking.view.CompanyModel;
-import banking.view.PersonalModel;
 import finance.view.CRModel;
 import framework.entities.AbstractFactory;
 import framework.entities.Address;

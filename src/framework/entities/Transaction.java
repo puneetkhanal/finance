@@ -1,7 +1,5 @@
 package framework.entities;
 
-import java.util.Date;
-
 import finance.Utils;
 import framework.interfaces.IAccount;
 
