@@ -3,17 +3,19 @@ package com.finance.view.defaultview;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import com.finance.ui.controller.UIController;
+import com.finance.ui.controller.TransactionActionListener;
 
 public class TRDialog extends JDialog {
 
-	private UIController uiController;
 	private String transactionType;
 	private int accountNumber;
-	public TRDialog(UIController uiController,String transactionType,int accountNumber) {
-		this.uiController = uiController;
-		this.transactionType=transactionType;
-		this.accountNumber=accountNumber;
+	private TransactionActionListener actionListener;
+
+	public TRDialog(TransactionActionListener actionListener,
+			String transactionType, int accountNumber) {
+		this.transactionType = transactionType;
+		this.accountNumber = accountNumber;
+		this.actionListener = actionListener;
 		// super(parent);
 		// parentframe=parent;
 		// accnr = aaccnr;
@@ -38,7 +40,7 @@ public class TRDialog extends JDialog {
 		JLabel2.setForeground(java.awt.Color.black);
 		JLabel2.setBounds(12, 36, 48, 24);
 		JTextField_NAME.setEditable(false);
-		
+
 		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(84, 12, 156, 20);
 		getContentPane().add(JTextField_AMT);
@@ -52,7 +54,7 @@ public class TRDialog extends JDialog {
 		getContentPane().add(JButton_Calcel);
 		JButton_Calcel.setBounds(156, 60, 84, 24);
 
-		JTextField_NAME.setText(accountNumber+"");
+		JTextField_NAME.setText(accountNumber + "");
 
 		SymAction lSymAction = new SymAction();
 		JButton_OK.addActionListener(lSymAction);
@@ -85,7 +87,7 @@ public class TRDialog extends JDialog {
 			trForm.setAmount(Double.parseDouble(JTextField_AMT.getText()));
 			trForm.setTransactionType(transactionType);
 			trForm.setName(JTextField_NAME.getText());
-			uiController.transactionPerformed(trForm);
+			actionListener.transactionPerformed(trForm);
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Please enter valid amount.");
 		}

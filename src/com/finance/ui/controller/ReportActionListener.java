@@ -18,7 +18,6 @@ public class ReportActionListener implements ActionListener {
 		ReportView reportView = new ReportView(uiController.getReport()
 				.getString(""));
 		reportView.show();
-
 	}
 
 }

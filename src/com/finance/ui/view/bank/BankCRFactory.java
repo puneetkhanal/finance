@@ -2,6 +2,7 @@ package com.finance.ui.view.bank;
 
 import javax.swing.JDialog;
 
+import com.finance.ui.controller.RegistrationActionListener;
 import com.finance.ui.view.AbstractCRFactory;
 
 public class BankCRFactory extends AbstractCRFactory {
@@ -10,11 +11,11 @@ public class BankCRFactory extends AbstractCRFactory {
 	}
 
 	@Override
-	public JDialog createCRDialog(String type) {
+	public JDialog createCRDialog(String type,RegistrationActionListener listener) {
 		if (type.equalsIgnoreCase("personal")) {
-			return new PersonalDialog(uiController);
+			return new PersonalDialog(listener);
 		} else {
-			return new CompanyDialog(uiController);
+			return new CompanyDialog(listener);
 		}
 	}
 

@@ -5,8 +5,6 @@ package com.finance.view.defaultview;
  A basic implementation of the JDialog class.
  */
 
-import java.awt.*;
-
 import javax.swing.JDialog;
 
 public class ReportView extends JDialog {

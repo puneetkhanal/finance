@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import com.finance.ui.view.AbstractCRFactory;
 import com.finance.ui.view.TypedJButton;
+import com.finance.view.defaultview.CRModel;
 
 public class RegistrationActionListener implements ActionListener {
 
@@ -14,14 +15,17 @@ public class RegistrationActionListener implements ActionListener {
 	public RegistrationActionListener(UIController uiController,
 			AbstractCRFactory dialogFactory) {
 		this.uiController = uiController;
-		this.dialogFactory=dialogFactory;
+		this.dialogFactory = dialogFactory;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		TypedJButton typedButton=(TypedJButton) e.getSource();
-		dialogFactory.createCRDialog(typedButton.getType()).show();
+		TypedJButton typedButton = (TypedJButton) e.getSource();
+		dialogFactory.createCRDialog(typedButton.getType(),this).show();
+	}
 
+	public void registerCustomer(CRModel crModel) {
+		uiController.registerCustomer(crModel);
 	}
 
 }
