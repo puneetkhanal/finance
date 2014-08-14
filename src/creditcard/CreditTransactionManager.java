@@ -1,10 +1,10 @@
-package credit;
+package creditcard;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-import credit.ReportComputer;
+import creditcard.ReportComputer;
 import framework.entities.AbstractTransactionManager;
 import framework.entities.Transaction;
 import framework.interfaces.IAccount;

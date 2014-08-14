@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import credit.ReportComputer;
+import creditcard.ReportComputer;
 import finance.TransactionManager;
 import framework.entities.Transaction;
 import framework.interfaces.IAccount;

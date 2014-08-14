@@ -1,4 +1,4 @@
-package credit;
+package creditcard;
 
 import java.util.ArrayList;
 import java.util.HashMap;

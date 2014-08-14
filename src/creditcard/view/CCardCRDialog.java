@@ -22,6 +22,7 @@ public class CCardCRDialog extends javax.swing.JDialog {
 		// parse your Java file into its visual environment.
 		// {{INIT_CONTROLS
 		setTitle("Add credit card account");
+		
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(301, 373);

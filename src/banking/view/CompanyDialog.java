@@ -19,7 +19,7 @@ public class CompanyDialog extends javax.swing.JDialog {
 		setTitle("Add compamy account");
 		setModal(true);
 		getContentPane().setLayout(null);
-		setSize(298, 339);
+		setSize(298, 400);
 		setVisible(false);
 		JRadioButton_Chk.setText("Checkings");
 		JRadioButton_Chk.setActionCommand("Checkings");

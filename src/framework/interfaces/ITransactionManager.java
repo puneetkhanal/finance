@@ -1,7 +1,7 @@
 package framework.interfaces;
 
 
-import credit.ReportComputer;
+import creditcard.ReportComputer;
 import framework.entities.Transaction;
 import framework.reporting.Report;
 

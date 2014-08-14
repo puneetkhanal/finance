@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:ivy="antlib:org.apache.ivy.ant" basedir="." name="finance" default="compile">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" basedir="." name="credit" default="compile">
 	<property name="build" value="${basedir}/build/">
 	</property>
 	<property name="src.dir" value="src" />
@@ -7,7 +7,7 @@
 	<property name="classes.dir" value="${build.dir}/classes" />
 	<property name="jar.dir" value="${build.dir}/jar" />
 	<property name="test-classes.dir" value="${build.dir}/test-classes" />
-	<property name="main-class" value="com.finance.Main" />
+	<property name="main-class" value="framework.Main" />
 	<property name="lib.dir" value="lib" />
 	<property name="dist.dir" value="dist" />
 	<property environment="env" />

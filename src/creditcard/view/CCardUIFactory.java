@@ -2,6 +2,7 @@ package creditcard.view;
 
 import javax.swing.JButton;
 
+import banking.view.BankTRPanel;
 
 import finance.view.DefaultTRPanel;
 import framework.view.AbstractDynamicPanel;
@@ -16,7 +17,7 @@ public class CCardUIFactory implements IUIFactory {
 
 	@Override
 	public AbstractDynamicPanel createTRPanel() {
-		return new DefaultTRPanel();
+		return new BankTRPanel();
 	}
 
 	@Override

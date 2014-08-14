@@ -1,9 +1,9 @@
 package framework;
 
-import credit.CreditAccountManager;
-import credit.CreditApplicationFactory;
-import credit.CreditCustomerManager;
-import credit.CreditTransactionManager;
+import creditcard.CreditAccountManager;
+import creditcard.CreditApplicationFactory;
+import creditcard.CreditCustomerManager;
+import creditcard.CreditTransactionManager;
 import creditcard.view.CCardCRFormFactory;
 import creditcard.view.CCardMainView;
 import creditcard.view.CCardUIFactory;
@@ -14,8 +14,6 @@ import banking.BankTransactionManager;
 import banking.view.BankCRFactory;
 import banking.view.BankMainView;
 import banking.view.BankUIFactory;
-
-
 
 import finance.AccountManager;
 import finance.CustomerManager;
@@ -39,19 +37,18 @@ public class Main {
 		System.out.println("Hello Framework");
 
 //		finance();
-//		 bank();
-		 credit();
+		 bank();
+//		 credit();
 
 	}
 
 	public static void finance() {
-		//Default
+		// Default
 		ICustomerManager customerManager = new CustomerManager();
 		ITransactionManager transactionManager = new TransactionManager();
 		IAccountManager accountManager = new AccountManager();
 		IAbstractFactory myFactory = new DefaultFactory();
-		
-		
+
 		FrameworkController frameworkController = new FrameworkController(null);
 		frameworkController.injectServiceProviders(customerManager,
 				accountManager, transactionManager, myFactory);
@@ -64,9 +61,10 @@ public class Main {
 		frameworkController.setUIController(uiController);
 		uiController.setFrameWorkcontroller(frameworkController);
 
-		CRModel crModel=getCrModel("Puneet", "Fairfield", "puneetkhanal@gmail.com", "fairfield", "1000 N", "52556");
+		CRModel crModel = getCrModel("Puneet", "Fairfield",
+				"puneetkhanal@gmail.com", "fairfield", "1000 N", "52556");
 		uiController.registerCustomer(crModel);
-		
+
 		mainView.setVisible(true);
 	}
 
