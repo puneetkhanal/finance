@@ -14,7 +14,7 @@ import com.finance.interfaces.IAccountManager;
 import com.finance.interfaces.ICustomerManager;
 import com.finance.interfaces.ITransactionManager;
 import com.finance.ui.controller.UIController;
-import com.finance.ui.view.AbstractMainView;
+import com.finance.ui.view.MainView;
 import com.finance.ui.view.bank.BankCRFactory;
 import com.finance.ui.view.bank.BankMainView;
 import com.finance.ui.view.bank.BankUIFactory;
@@ -49,7 +49,7 @@ public class Main {
 		frameworkController.injectServiceProviders(customerManager,
 				accountManager, transactionManager, myFactory);
 
-		AbstractMainView mainView = new DefaultMainView("Finance Application",
+		MainView mainView = new DefaultMainView("Finance Application",
 				new DefaultUIFactory());
 		UIController uiController = new UIController(mainView,
 				new DefaultCRDialogFactory());
@@ -85,7 +85,7 @@ public class Main {
 		frameworkController.injectServiceProviders(customerManager,
 				accountManager, transactionManager, myFactory);
 
-		AbstractMainView mainView = new BankMainView("Bank Application",
+		MainView mainView = new BankMainView("Bank Application",
 				new BankUIFactory());
 		UIController uiController = new UIController(mainView,
 				new BankCRFactory());
@@ -106,7 +106,7 @@ public class Main {
 		frameworkController.injectServiceProviders(customerManager,
 				accountManager, transactionManager, myFactory);
 
-		AbstractMainView mainView = new CCardMainView("Credit Card Application",
+		MainView mainView = new CCardMainView("Credit Card Application",
 				new CCardUIFactory());
 		UIController uiController = new UIController(mainView,
 				new CCardCRFormFactory());

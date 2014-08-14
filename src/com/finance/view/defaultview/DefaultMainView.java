@@ -3,13 +3,13 @@ package com.finance.view.defaultview;
 import javax.swing.*;
 
 import com.finance.ui.controller.UIController;
-import com.finance.ui.view.AbstractMainView;
+import com.finance.ui.view.MainView;
 import com.finance.ui.view.IUIFactory;
 
 /**
  * A basic JFC based application.
  */
-public class DefaultMainView extends AbstractMainView {
+public class DefaultMainView extends MainView {
 	private JTable table;
 
 	public DefaultMainView(String title, IUIFactory iuiFactory) {

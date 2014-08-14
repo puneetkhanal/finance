@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.finance.interfaces.IDataSet;
 
-public abstract class AbstractMainView extends JFrame {
+public abstract class MainView extends JFrame {
 
 	private JButton reportButton;
 	private IUIFactory uiFactory;
@@ -26,7 +26,7 @@ public abstract class AbstractMainView extends JFrame {
 	protected JTable table;
 	private List<IDataSet> dataList;
 
-	public AbstractMainView(String title, IUIFactory uiFactory) {
+	public MainView(String title, IUIFactory uiFactory) {
 		this.uiFactory = uiFactory;
 		crPanel = uiFactory.createCRPanel();
 		trPanel = uiFactory.createTRPanel();

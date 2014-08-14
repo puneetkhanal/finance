@@ -6,18 +6,18 @@ import java.util.List;
 
 import com.finance.interfaces.IDataSet;
 import com.finance.reporting.Report;
-import com.finance.ui.view.AbstractMainView;
+import com.finance.ui.view.MainView;
 import com.finance.ui.view.AbstractCRFactory;
 import com.finance.view.defaultview.CRModel;
 import com.finance.view.defaultview.TRModel;
 
 public class UIController {
 
-	private AbstractMainView mainView;
+	private MainView mainView;
 	protected AbstractCRFactory crDialogFactory;
 	private FrameworkController frameworkController;
 
-	public UIController(AbstractMainView mainView,
+	public UIController(MainView mainView,
 			AbstractCRFactory crDialogFactory) {
 		this.mainView = mainView;
 		this.crDialogFactory = crDialogFactory;

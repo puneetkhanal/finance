@@ -5,10 +5,10 @@ import java.util.Vector;
 import javax.swing.UIManager;
 
 import com.finance.ui.controller.UIController;
-import com.finance.ui.view.AbstractMainView;
+import com.finance.ui.view.MainView;
 import com.finance.ui.view.IUIFactory;
 
-public class BankMainView extends AbstractMainView {
+public class BankMainView extends MainView {
 
 	public BankMainView(String title, IUIFactory iuiFactory) {
 		super(title, iuiFactory);
@@ -37,7 +37,7 @@ public class BankMainView extends AbstractMainView {
 
 			// Create a new instance of our application's frame, and make it
 			// visible.
-			AbstractMainView mainView = new BankMainView("Bank application",
+			MainView mainView = new BankMainView("Bank application",
 					new BankUIFactory());
 			new UIController(mainView, new BankCRFactory());
 			mainView.setVisible(true);
