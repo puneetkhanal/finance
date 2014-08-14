@@ -1,11 +1,11 @@
 package banking.view;
 
+import javax.swing.JOptionPane;
+
 import framework.view.controller.RegistrationActionListener;
-import framework.view.controller.UIController;
 
 public class CompanyDialog extends javax.swing.JDialog {
 
-	private UIController uiController;
 	private RegistrationActionListener listener;
 
 	public CompanyDialog(RegistrationActionListener listener) {
@@ -130,22 +130,26 @@ public class CompanyDialog extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		CompanyModel crForm = new CompanyModel();
-		crForm.setName(JTextField_NAME.getText());
-		crForm.setCity(JTextField_CT.getText());
-		crForm.setStreet(JTextField_ST.getText());
-		crForm.setZip(JTextField_ZIP.getText());
-		crForm.setZip(JTextField_ST.getText());
-		crForm.setEmail(JTextField_EM.getText());
-		crForm.setNumberOfEmployees(Integer.parseInt(JTextField_NoOfEmp
-				.getText()));
-
-		if (JRadioButton_Chk.isSelected())
-			crForm.setAccountType(AccountType.checkings);
-		else
-			crForm.setAccountType(AccountType.savings);
-		uiController.registerCustomer(crForm);
-		dispose();
+		try {
+			CompanyModel crForm = new CompanyModel();
+			crForm.setName(JTextField_NAME.getText());
+			crForm.setCity(JTextField_CT.getText());
+			crForm.setStreet(JTextField_ST.getText());
+			crForm.setZip(JTextField_ZIP.getText());
+			crForm.setZip(JTextField_ST.getText());
+			crForm.setEmail(JTextField_EM.getText());
+			crForm.setNumberOfEmployees(Integer.parseInt(JTextField_NoOfEmp
+					.getText()));
+			if (JRadioButton_Chk.isSelected())
+				crForm.setAccountType(AccountType.checkings);
+			else
+				crForm.setAccountType(AccountType.savings);
+			listener.registerCustomer(crForm);
+			dispose();
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null,
+					"Please check your input values");
+		}
 
 	}
 
