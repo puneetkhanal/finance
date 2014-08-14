@@ -9,7 +9,6 @@ import framework.interfaces.ITransactionManager;
 public abstract class AbstractAccount implements IAccount{
 	
 	private static int accountNumberGenerator = 123456;
-	private double interestRate;
 	private int accountNumber;
 	private double currentBalance;
 	protected ICustomer customer;
@@ -26,7 +25,7 @@ public abstract class AbstractAccount implements IAccount{
 		this.customer = customer;	
 		accountNumber = accountNumberGenerator;
 		accountNumberGenerator++;
-		interestRate = getInterestRate();
+		
 	}
 	
 	@Override
@@ -57,5 +56,10 @@ public abstract class AbstractAccount implements IAccount{
 	@Override
 	public final  void setChanged(){
 		accountManager.setAccountChanged();
+	}
+	@Override
+	public String getExpiryDate() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

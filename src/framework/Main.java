@@ -1,5 +1,9 @@
 package framework;
 
+import credit.CreditAccountManager;
+import credit.CreditApplicationFactory;
+import credit.CreditCustomerManager;
+import credit.CreditTransactionManager;
 import creditcard.view.CCardCRFormFactory;
 import creditcard.view.CCardMainView;
 import creditcard.view.CCardUIFactory;
@@ -35,8 +39,8 @@ public class Main {
 		System.out.println("Hello Framework");
 
 //		finance();
-		 bank();
-		// credit();
+//		 bank();
+		 credit();
 
 	}
 
@@ -100,10 +104,10 @@ public class Main {
 	}
 
 	public static void credit() {
-		ICustomerManager customerManager = new CustomerManager();
-		ITransactionManager transactionManager = new TransactionManager();
-		IAccountManager accountManager = new AccountManager();
-		IAbstractFactory myFactory = new DefaultFactory();
+		ICustomerManager customerManager = new CreditCustomerManager();
+		ITransactionManager transactionManager = new CreditTransactionManager();
+		IAccountManager accountManager = new CreditAccountManager();
+		IAbstractFactory myFactory = new CreditApplicationFactory();
 
 		FrameworkController frameworkController = new FrameworkController(null);
 		frameworkController.injectServiceProviders(customerManager,

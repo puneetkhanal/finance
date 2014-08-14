@@ -4,22 +4,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 import framework.entities.AbstractAccount;
 import framework.interfaces.ICustomer;
 import framework.reporting.Report;
 
 public class BronzeCreditAccount extends AbstractAccount{
-
-	public BronzeCreditAccount(int acc_no, ICustomer customer) {
+	private double monthlyInterest;
+	private double monthlyPayment;
+	private String expiryDate;
+	public BronzeCreditAccount(int acc_no, ICustomer customer,String expiryDate) {
 		super(acc_no, customer);
-		// TODO Auto-generated constructor stub
+		monthlyInterest =0.1;
+		monthlyPayment = 0.14;
+		this.expiryDate = expiryDate;
+		
 	}
 
-	@Override
-	public double getInterestRate() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public String getType() {
@@ -32,7 +33,7 @@ public class BronzeCreditAccount extends AbstractAccount{
 		Map<String,String> myReport = new HashMap<String, String>();
 		myReport.put("Account Number", ""+getAccountNumber()+"");
 		myReport.put("Account Type", ""+getType());
-		
+		myReport.put("*******Transactions********", "");
 		Report report = new Report(myReport);
 		
 		ReportComputer reportComputer = new ReportComputer();
@@ -42,9 +43,13 @@ public class BronzeCreditAccount extends AbstractAccount{
 	}
 
 	@Override
-	public double computeInterest() {
+	public String getExpiryDate() {
 		// TODO Auto-generated method stub
-		return 0;
+		return expiryDate;
+	}
+	@Override
+	public double computeInterest() {
+		return getCurrentBalance()*monthlyInterest;
 	}
 
 }

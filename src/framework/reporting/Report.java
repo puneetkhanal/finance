@@ -34,13 +34,16 @@ public class Report {
 	
 	public String getString(String padding){
 		String result ="";
-		Iterator<String> iterator = myReport.keySet().iterator();
-		while(iterator.hasNext()){
-			String key = iterator.next();
-			String value = myReport.get(key);
-			result += padding+key+":"+value+"\n";
+		if(myReport!=null){
+			Iterator<String> iterator = myReport.keySet().iterator();
+			while(iterator.hasNext()){
+				String key = iterator.next();
+				String value = myReport.get(key);
+				result += padding+key+":"+value+"\n";
+			}
 		}
 		for(Report r: childReports){
+			result+="\n";
 			result +=r.getString(padding+"  ");
 		}
 		return result;
