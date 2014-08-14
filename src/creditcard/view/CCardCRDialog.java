@@ -4,6 +4,8 @@ package creditcard.view;
  A basic implementation of the JDialog class.
  */
 
+import javax.swing.JOptionPane;
+
 import framework.view.controller.RegistrationActionListener;
 
 public class CCardCRDialog extends javax.swing.JDialog {
@@ -176,26 +178,31 @@ public class CCardCRDialog extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		CCardCRModel crForm = new CCardCRModel();
-		crForm.setName(JTextField_NAME.getText());
-		crForm.setCity(JTextField_CT.getText());
-		crForm.setStreet(JTextField_ST.getText());
-		crForm.setZip(JTextField_ZIP.getText());
-		crForm.setZip(JTextField_ST.getText());
-		crForm.setEmail(JTextField_Email.getText());
-		crForm.setCcNumber(JTextField_CCNR.getText());
-		crForm.setExpDate(JTextField_ExpDate.getText());
-
-		if (JRadioButton_Gold.isSelected())
-			crForm.setCcAccountType(CCAccountType.gold);
-		else {
-			if (JRadioButton_Silver.isSelected())
-				crForm.setCcAccountType(CCAccountType.silver);
-			else
-				crForm.setCcAccountType(CCAccountType.bronze);
+		try {
+			CCardCRModel crForm = new CCardCRModel();
+			crForm.setName(JTextField_NAME.getText());
+			crForm.setCity(JTextField_CT.getText());
+			crForm.setStreet(JTextField_ST.getText());
+			crForm.setZip(JTextField_ZIP.getText());
+			crForm.setZip(JTextField_ST.getText());
+			crForm.setEmail(JTextField_Email.getText());
+			crForm.setCcNumber(Integer.parseInt(JTextField_CCNR.getText()));
+			crForm.setExpDate(JTextField_ExpDate.getText());
+			if (JRadioButton_Gold.isSelected())
+				crForm.setCcAccountType(CCAccountType.gold);
+			else {
+				if (JRadioButton_Silver.isSelected())
+					crForm.setCcAccountType(CCAccountType.silver);
+				else
+					crForm.setCcAccountType(CCAccountType.bronze);
+			}
+			listener.registerCustomer(crForm);
+			dispose();
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null,
+					"Please check your input values");
 		}
-		listener.registerCustomer(crForm);
-		dispose();
+
 	}
 
 	void JButtonCalcel_actionPerformed(java.awt.event.ActionEvent event) {

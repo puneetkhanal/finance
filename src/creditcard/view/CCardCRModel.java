@@ -4,7 +4,7 @@ import finance.view.CRModel;
 
 public class CCardCRModel extends CRModel {
 
-	private String ccNumber;
+	private int ccNumber;
 	private String expDate;
 	private CCAccountType ccAccountType;
 
@@ -16,11 +16,11 @@ public class CCardCRModel extends CRModel {
 		this.ccAccountType = ccAccountType;
 	}
 
-	public String getCcNumber() {
+	public int getCcNumber() {
 		return ccNumber;
 	}
 
-	public void setCcNumber(String ccNumber) {
+	public void setCcNumber(int ccNumber) {
 		this.ccNumber = ccNumber;
 	}
 

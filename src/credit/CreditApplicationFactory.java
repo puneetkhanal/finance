@@ -3,10 +3,6 @@ package credit;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
 import creditcard.view.CCAccountType;
 import creditcard.view.CCardCRModel;
 import banking.CheckingAccount;
@@ -26,7 +22,7 @@ import framework.interfaces.ICustomerManager;
 import framework.interfaces.IDataSet;
 import framework.reporting.IReportComputer;
 
-public class CreditApplicationFactory extends AbstractFactory{
+public class CreditApplicationFactory extends AbstractFactory {
 
 	@Override
 	public IReportComputer getReportComputer() {
@@ -37,8 +33,8 @@ public class CreditApplicationFactory extends AbstractFactory{
 	@Override
 	public List<IDataSet> getDataSet(ICustomerManager customerManager) {
 		List<IDataSet> list = new ArrayList<IDataSet>();
-		for(ICustomer c:customerManager.getAllCustomer()){
-			for(IAccount a:c.getAllAccount()){
+		for (ICustomer c : customerManager.getAllCustomer()) {
+			for (IAccount a : c.getAllAccount()) {
 				list.add(new CreditDataSet(c, a));
 			}
 		}
@@ -52,46 +48,41 @@ public class CreditApplicationFactory extends AbstractFactory{
 		String street = form.getStreet();
 		String city = form.getCity();
 		String state = form.getState();
-		String zipCode= form.getZip();
-		Address address =new Address(street, city, zipCode, state);
-		return new Person(address, name, email,"");
+		String zipCode = form.getZip();
+		Address address = new Address(street, city, zipCode, state);
+		return new Person(address, name, email, "");
 	}
 
 	@Override
 	public IAccount createAccount(CRModel form, ICustomer customer,
 			String accountType) {
-		//process the form for any field required to create the account, 
-		//in this case the application itself generates the account number
+		// process the form for any field required to create the account,
+		// in this case the application itself generates the account number
 		AccountType type;
-		if(form instanceof CCardCRModel){
-			CCardCRModel model=(CCardCRModel) form;
-			int ccNumber = Integer.parseInt(model.getCcNumber());
-			CCAccountType accType =model.getCcAccountType();
+		if (form instanceof CCardCRModel) {
+			CCardCRModel model = (CCardCRModel) form;
+			int ccNumber = model.getCcNumber();
+			CCAccountType accType = model.getCcAccountType();
 			String expirydate = model.getExpDate();
-			if(accType==CCAccountType.bronze){
-				return new BronzeCreditAccount(ccNumber, customer,expirydate);
+			if (accType == CCAccountType.bronze) {
+				return new BronzeCreditAccount(ccNumber, customer, expirydate);
+			} else if (accType == CCAccountType.silver) {
+				return new SilverCreditAccount(ccNumber, customer, expirydate);
+			} else if (accType == CCAccountType.gold) {
+				return new GoldCreditAccount(ccNumber, customer, expirydate);
 			}
-			else if(accType==CCAccountType.silver){
-				return new SilverCreditAccount(ccNumber, customer,expirydate);
-			}
-			else if(accType==CCAccountType.gold ){
-				return new GoldCreditAccount(ccNumber, customer,expirydate);
-			}
-		}	
+		}
 		return null;
 	}
 
 	@Override
 	public Transaction getTransaction(IAccount account, double amount,
 			String type) {
-		if(type.equals("deposit")){
+		if (type.equals("deposit")) {
 			return new CreditDeposit(account, amount, "");
-		}
-		else{
+		} else {
 			return new CreditCharge(account, amount, "");
 		}
 	}
-
-	
 
 }
